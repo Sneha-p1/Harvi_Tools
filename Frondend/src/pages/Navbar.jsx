@@ -1,9 +1,12 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import img1 from '../assets/images/logo.jpeg';
+import About from "./About";
+import Footer from "./Footer";
 
 const Navbar = () => {
   return (
+    <>
     <nav className="bg-white shadow-lg">
       {/* Top Section: Logo and Icons */}
       <div className="container mx-auto flex items-center justify-between py-6 px-6">
@@ -44,25 +47,25 @@ const Navbar = () => {
         <div className="container mx-auto py-4 px-6">
           <div className="flex justify-center space-x-12">
             <a
-              href="#about"
+              href="/about"
               className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
             >
               ABOUT
             </a>
             <a
-              href="#products"
+              href="/products"
               className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
             >
               PRODUCTS
             </a>
             <a
-              href="#services"
+              href="/services"
               className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
             >
               SERVICES
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
             >
               CONTACT
@@ -71,6 +74,10 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    <About/>
+    <Footer/>
+    </>
+
   );
 };
 
