@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="md:w-1/3">
             <h3 className="text-lg font-serif text-blue-500 mb-4">HARVI TOOLS</h3>
             {/* <img src="logo.png" alt="HARVI TOOLS Logo" className="w-20 h-20 mb-4" />  */}
-            <p className="text-sm leading-relaxed">
+            <p className="text-[16px] leading-relaxed">
               Specialists in precision moulds and tools manufacturing. Delivering high-quality products tailored to meet your specific needs.
             </p>
           </div>
@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="md:w-1/3">
             <h4 className="text-lg font-semibold text-blue-500 mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-[16px]">
               <li>
                 <a href="#about" className="hover:text-blue-400">About Us</a>
               </li>
@@ -36,16 +36,16 @@ const Footer = () => {
           {/* Contact Information */}
           <div className="md:w-1/3">
             <h4 className="text-lg font-semibold text-blue-500 mb-4">Contact Us</h4>
-            <p className="text-sm">
+            <p className="text-[16px]">
               <span className="font-medium">Address:</span> Adumancadu, Parasuvaikkal, Kerala 695508
             </p>
-            <p className="text-sm mt-2">
+            <p className="text-[16px] mt-2">
               <span className="font-medium">Phone:</span>{' '}
               <a href="tel:08078417696" className="hover:text-blue-400">
                 +91-8078417696
               </a>
             </p>
-            <p className="text-sm mt-2">
+            <p className="text-[16px] mt-2">
               <span className="font-medium">Email:</span>{' '}
               <a href="mailto:harviplastics@gmail.com" className="hover:text-blue-400">
                 harviplastics@gmail.com
@@ -58,7 +58,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 my-6"></div>
 
         {/* Copyright */}
-        <div className="text-center text-sm">
+        <div className="text-center text-[16px]">
           <p>&copy; {new Date().getFullYear()} HARVI TOOLS. All Rights Reserved.</p>
         </div>
       </div>
