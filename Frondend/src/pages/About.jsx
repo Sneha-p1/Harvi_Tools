@@ -12,7 +12,7 @@ const About = () => {
     >
       <div className="container mx-auto py-16 px-8 backdrop-blur-sm bg-white bg-opacity-50 rounded-lg">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <h1 className="text-4xl font-bold uppercase">About Us</h1>
           <p className="mt-4 text-lg">Learn more about HARVI TOOLS and what we do</p>
         </div>
