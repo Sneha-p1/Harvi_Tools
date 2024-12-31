@@ -63,6 +63,12 @@ const Navbar = () => {
               className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
             >
               SERVICES
+              </a>
+            <a
+              href="/business"
+              className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
+            >
+              BUSINESS
             </a>
             <a
               href="/contact"
