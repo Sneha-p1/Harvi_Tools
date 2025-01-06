@@ -31,6 +31,9 @@ import About from "./pages/About";
 import Footer from "./pages/Footer";
 import ContactUs from "./pages/Contact";
 import Business from "./pages/Business";
+import ProductListPage from "./pages/ProductListPage";
+import DashboardPage from "./pages/DashboardPage";
+import ProductCard from "./pages/ProductCard";
   
   function App() {
     const router = createBrowserRouter(
@@ -43,44 +46,14 @@ import Business from "./pages/Business";
           <Route path="/footer" element={<Footer/>}/>
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/business" element={<Business/>}/>
+          <Route path="/product" element={<ProductListPage/>}/>
+          <Route path="/admin" element={<DashboardPage/>}/>
+          <Route path="/card" element={<ProductCard/>}/>
 
-          {/* <Route path="/contact" element={<Contact/>}/> */}
-            {/* <Route path="/" element={<HomePage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="/add-product" element={<AddProductPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/order" element={<ConfirmPage />} />
-            <Route path="/message" element={<MessagePage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="/pharmacist" element={<PharmacistPage />} />
-  
-  
-  
-  
-            <Route
-              path="/edit-product/:id"
-              element={<EditProductPage />}
-              loader={productLoader}
-            />
-            <Route
-              path="/products/:id"
-              element={<ProductPage/>}
-              loader={productLoader}
-            />
-          </Route>
-          <Route path="/" element={<AuthLayout />}>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/sign-up" element={<SignupPage />}/>
-          </Route>
-  
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/cart-page" element={<CartPage />} />
-          <Route path="/pres" element={<PharmacistPresPage />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
-  
-  
+
+
+
+          
         
         </>
       )
