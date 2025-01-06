@@ -30,6 +30,7 @@ import Navbar from "./pages/Navbar";
 import About from "./pages/About";
 import Footer from "./pages/Footer";
 import ContactUs from "./pages/Contact";
+import Business from "./pages/Business";
   
   function App() {
     const router = createBrowserRouter(
@@ -40,7 +41,8 @@ import ContactUs from "./pages/Contact";
           <Route path="/" element={<Navbar />}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/footer" element={<Footer/>}/>
-          <Route path="/contact" element={<ContactUs/>}/>
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/business" element={<Business/>}/>
 
           {/* <Route path="/contact" element={<Contact/>}/> */}
             {/* <Route path="/" element={<HomePage />} />
