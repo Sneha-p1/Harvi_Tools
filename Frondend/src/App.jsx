@@ -32,8 +32,9 @@ import Footer from "./pages/Footer";
 import ContactUs from "./pages/Contact";
 import Business from "./pages/Business";
 import ProductListPage from "./pages/ProductListPage";
-import DashboardPage from "./pages/DashboardPage";
 import ProductCard from "./pages/ProductCard";
+import ProductAddPage from "./pages/ProductAddPage";
+import Dashboard from "./pages/Dashboard";
   
   function App() {
     const router = createBrowserRouter(
@@ -47,8 +48,10 @@ import ProductCard from "./pages/ProductCard";
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/business" element={<Business/>}/>
           <Route path="/product" element={<ProductListPage/>}/>
-          <Route path="/admin" element={<DashboardPage/>}/>
+          <Route path="/admin" element={<ProductAddPage/>}/>
           <Route path="/card" element={<ProductCard/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+
 
 
 

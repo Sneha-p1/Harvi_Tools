@@ -28,7 +28,7 @@ const Navbar = () => {
 
       if (response.ok) {
         // Navigate to the admin dashboard on success
-        navigate("/admin");
+        navigate("/dashboard");
       } else {
         // Display error message
         setError(data.message || "Invalid password.");

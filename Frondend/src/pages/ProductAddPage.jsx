@@ -1,8 +1,7 @@
-// src/components/DashboardPage.js
 
 import React, { useState } from "react";
 
-const DashboardPage = () => {
+const ProductAddPage = () => {
   const [formData, setFormData] = useState({ name: '', description: '' });
 
   const handleChange = (e) => {
@@ -32,7 +31,7 @@ const DashboardPage = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-semibold">Dashboard</h1>
+      <h1 className="text-2xl font-semibold">Create Product</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label>Name:</label>
@@ -62,4 +61,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default ProductAddPage;
