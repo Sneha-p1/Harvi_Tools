@@ -1,19 +1,17 @@
-// routes.js
-
 const express = require('express');
 const Product = require('../Models/product'); // Import Product schema
-
+const adminAuthMiddleware=require('../Middleware/adminAuthMiddleware.js')
 const router = express.Router();
 
 
-const adminAuthMiddleware = (req, res, next) => {
-    const adminPassword = process.env.ADMIN_PASSWORD;
-    if (req.headers['x-admin-password'] === adminPassword) {
-        next();
-    } else {
-        res.status(403).json({ error: "Unauthorized" });
-    }
-};
+// const adminAuthMiddleware = (req, res, next) => {
+//     const adminPassword = process.env.ADMIN_PASSWORD;
+//     if (req.headers['x-admin-password'] === adminPassword) {
+//         next();
+//     } else {
+//         res.status(403).json({ error: "Unauthorized" });
+//     }
+// };
 
 
 // GET: Fetch all products
@@ -27,7 +25,7 @@ router.get('/', async (req, res) => {
 });
 
 // POST: Add a new product (protected)
-router.post('/', async (req, res) => {
+router.post('/',adminAuthMiddleware, async (req, res) => {
     const { name, description } = req.body;
     try {
         const newProduct = new Product({ name, description });
@@ -39,7 +37,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT: Edit an existing product (protected)
-router.put('/:id', adminAuthMiddleware, async (req, res) => {
+router.put('/:id',adminAuthMiddleware, async (req, res) => {
     const { id } = req.params;
     const { name, description } = req.body;
     try {
@@ -58,7 +56,7 @@ router.put('/:id', adminAuthMiddleware, async (req, res) => {
 });
 
 // DELETE: Delete a product (protected)
-router.delete('/:id', adminAuthMiddleware, async (req, res) => {
+router.delete('/:id',adminAuthMiddleware, async (req, res) => {
     const { id } = req.params;
     try {
         const deletedProduct = await Product.findByIdAndDelete(id);

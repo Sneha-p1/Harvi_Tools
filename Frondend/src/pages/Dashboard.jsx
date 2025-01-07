@@ -21,7 +21,7 @@ const Dashboard = () => {
           />
         </div> */}
         {/* Dashboard Content */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
           {/* Create Product Card */}
           <div className="bg-blue-500 text-white rounded-lg shadow-md p-6 flex flex-col items-center">
             <h3 className="text-lg font-bold mb-4">Create Product</h3>
@@ -35,26 +35,17 @@ const Dashboard = () => {
           {/* View Products Card */}
           <div className="bg-yellow-500 text-white rounded-lg shadow-md p-6 flex flex-col items-center">
             <h3 className="text-lg font-bold mb-4">View Products</h3>
-            <Link to="/view-product" className="w-full">
+            <Link to="/admin-view" className="w-full">
               <button className="bg-yellow-700 w-full py-2 px-4 text-center rounded-full hover:bg-yellow-800 transition duration-200">
                 Go to View
               </button>
             </Link>
           </div>
 
-          {/* Read Product Card */}
-          <div className="bg-green-500 text-white rounded-lg shadow-md p-6 flex flex-col items-center">
-            <h3 className="text-lg font-bold mb-4">Read Product</h3>
-            <Link to="/read-product" className="w-full">
-              <button className="bg-green-700 w-full py-2 px-4 text-center rounded-full hover:bg-green-800 transition duration-200">
-                Go to Read
-              </button>
-            </Link>
-          </div>
           <div className="mt-2 text-center">
             <a
               href="/home"
-              className="inline-block px-4 py-2 bg-black text-white font-semibold rounded "
+              className="inline-block px-4 py-2 bg-black text-white font-semibold rounded mx-auto"
             >
               Back to Home
             </a>

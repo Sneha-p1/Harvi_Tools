@@ -1,8 +1,9 @@
-
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 
 const ProductAddPage = () => {
-  const [formData, setFormData] = useState({ name: '', description: '' });
+  const [formData, setFormData] = useState({ name: "", description: "" });
+  const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -11,22 +12,25 @@ const ProductAddPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add product logic (POST request)
-    fetch('http://localhost:5000/api/products', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(formData),
-})
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    console.log('Product added:', data);
-  })
-  .catch((error) => console.log('Error:', error));
-
+    fetch("http://localhost:5000/api/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-admin-password": "harvi_tools", // Add this header
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Product added:", data);
+        navigate("/admin-view"); // Redirect to Admin Products page
+      })
+      .catch((error) => console.log("Error:", error));
   };
 
   return (
@@ -56,7 +60,6 @@ const ProductAddPage = () => {
           Add Product
         </button>
       </form>
-      {/* Display list of products for editing/deleting */}
     </div>
   );
 };

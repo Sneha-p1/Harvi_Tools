@@ -1,25 +1,3 @@
-// import About from "./pages/About"
-// import Footer from "./pages/Footer"
-// import Navbar from "./pages/Navbar"
-
-
-
-
-// function App() {
-
-
-//     return (
-//         <>
-//         <Navbar/>
-//         <About/>
-//         <Footer/>
-
-//         </>
-//     )
-// }
-
-// export default App
-
 import {createBrowserRouter,
     createRoutesFromElements,
     RouterProvider,
@@ -35,6 +13,7 @@ import ProductListPage from "./pages/ProductListPage";
 import ProductCard from "./pages/ProductCard";
 import ProductAddPage from "./pages/ProductAddPage";
 import Dashboard from "./pages/Dashboard";
+import AdminViewPage from "./pages/AdminViewPage";
   
   function App() {
     const router = createBrowserRouter(
@@ -51,6 +30,8 @@ import Dashboard from "./pages/Dashboard";
           <Route path="/admin" element={<ProductAddPage/>}/>
           <Route path="/card" element={<ProductCard/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/admin-view" element={<AdminViewPage/>}/>
+
 
 
 
