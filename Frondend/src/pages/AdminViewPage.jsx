@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 const AdminViewPage = () => {
   const [products, setProducts] = useState([]);
   const [editProductId, setEditProductId] = useState(null);
-  const [editForm, setEditForm] = useState({ name: "", description: "" });
+  const [editForm, setEditForm] = useState({ name: "", description: "", image: null });
 
-  const adminPassword = "your-admin-password"; // Replace with the actual admin password
 
   // Fetch all products
   const fetchProducts = async () => {
@@ -24,20 +23,32 @@ const AdminViewPage = () => {
   // Handle edit button click
   const handleEditClick = (product) => {
     setEditProductId(product._id);
-    setEditForm({ name: product.name, description: product.description });
+    setEditForm({ name: product.name, description: product.description, image: null });
+  };
+
+  // Handle file input change
+  const handleFileChange = (e) => {
+    setEditForm({ ...editForm, image: e.target.files[0] });
   };
 
   // Handle edit form submission
   const handleEditSubmit = async (e) => {
     e.preventDefault();
+
+    const data = new FormData();
+    data.append("name", editForm.name);
+    data.append("description", editForm.description);
+    if (editForm.image) {
+      data.append("image", editForm.image); // Append the image file if it exists
+    }
+
     try {
       const response = await fetch(`http://localhost:5000/api/products/${editProductId}`, {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json",
           "x-admin-password": "harvi_tools",
         },
-        body: JSON.stringify(editForm),
+        body: data, // Send FormData instead of JSON
       });
 
       if (!response.ok) {
@@ -51,7 +62,7 @@ const AdminViewPage = () => {
         )
       );
       setEditProductId(null);
-      setEditForm({ name: "", description: "" });
+      setEditForm({ name: "", description: "", image: null });
     } catch (error) {
       console.error(error.message);
     }
@@ -94,6 +105,7 @@ const AdminViewPage = () => {
             <tr>
               <th className="border border-gray-300 px-4 py-2">Name</th>
               <th className="border border-gray-300 px-4 py-2">Description</th>
+              <th className="border border-gray-300 px-4 py-2">Image</th>
               <th className="border border-gray-300 px-4 py-2">Actions</th>
             </tr>
           </thead>
@@ -105,6 +117,17 @@ const AdminViewPage = () => {
                 </td>
                 <td className="border border-gray-300 px-4 py-2">
                   {product.description}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {product.image ? (
+                    <img
+                    src={product.image} // Use the full image URL
+                    alt={product.name}
+                    className="w-16 h-16 object-cover"
+                  />
+                  ) : (
+                    <span>No image</span>
+                  )}
                 </td>
                 <td className="border border-gray-300 px-4 py-2">
                   <button
@@ -150,6 +173,14 @@ const AdminViewPage = () => {
                 }
                 className="border border-gray-300 p-2 w-full"
               ></textarea>
+            </div>
+            <div className="mb-2">
+              <label className="block mb-1 font-semibold">Product Image</label>
+              <input
+                type="file"
+                onChange={handleFileChange}
+                className="border border-gray-300 p-2 w-full"
+              />
             </div>
             <button
               type="submit"

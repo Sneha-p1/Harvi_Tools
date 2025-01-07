@@ -2,23 +2,35 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 
 const ProductAddPage = () => {
-  const [formData, setFormData] = useState({ name: "", description: "" });
+  const [formData, setFormData] = useState({ name: "", description: "", image: null });
   const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFileChange = (e) => {
+    setFormData({ ...formData, image: e.target.files[0] }); // Update the image file
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Create a FormData object
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("description", formData.description);
+    if (formData.image) {
+      data.append("image", formData.image); // Add the image file
+    }
+
     // Add product logic (POST request)
     fetch("http://localhost:5000/api/products", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "x-admin-password": "harvi_tools", // Add this header
+        "x-admin-password": "harvi_tools", // Add admin password header
       },
-      body: JSON.stringify(formData),
+      body: data, // Send FormData
     })
       .then((response) => {
         if (!response.ok) {
@@ -55,6 +67,15 @@ const ProductAddPage = () => {
             onChange={handleChange}
             className="border p-2 w-full"
           ></textarea>
+        </div>
+        <div>
+          <label>Product Image:</label>
+          <input
+            type="file"
+            name="image"
+            onChange={handleFileChange}
+            className="border p-2 w-full"
+          />
         </div>
         <button type="submit" className="bg-blue-600 text-white py-2 px-4">
           Add Product
