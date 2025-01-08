@@ -1,5 +1,3 @@
-// src/components/ProductListPage.js
-
 import React, { useEffect, useState } from "react";
 
 const ProductListPage = () => {
@@ -21,6 +19,7 @@ const ProductListPage = () => {
           <li key={product._id} className="border-b py-4">
             <h2 className="text-lg font-medium">{product.name}</h2>
             <p>{product.description}</p>
+            <img src={product.image} alt="" width='250px' height='250px' />
           </li>
         ))}
       </ul>

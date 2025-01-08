@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 
 const ProductAddPage = () => {
-  const [formData, setFormData] = useState({ name: "", description: "", image: null });
+  const [formData, setFormData] = useState({ name: "", description: "", image: "" });
   const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   const handleChange = (e) => {
@@ -40,6 +40,7 @@ const ProductAddPage = () => {
       })
       .then((data) => {
         console.log("Product added:", data);
+        console.log(data)
         navigate("/admin-view"); // Redirect to Admin Products page
       })
       .catch((error) => console.log("Error:", error));

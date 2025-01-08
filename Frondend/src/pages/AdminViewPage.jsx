@@ -14,6 +14,7 @@ const AdminViewPage = () => {
         throw new Error("Failed to fetch products");
       }
       const data = await response.json();
+      console.log('data',data)
       setProducts(data);
     } catch (error) {
       console.error(error.message);
@@ -121,7 +122,7 @@ const AdminViewPage = () => {
                 <td className="border border-gray-300 px-4 py-2">
                   {product.image ? (
                     <img
-                    src={product.image} // Use the full image URL
+                    src={`http://localhost:5000/uploads/${product.image}`} 
                     alt={product.name}
                     className="w-16 h-16 object-cover"
                   />
