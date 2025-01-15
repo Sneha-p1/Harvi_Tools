@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import { useNavigate } from "react-router-dom"; 
 
 const ProductAddPage = () => {
   const [formData, setFormData] = useState({ name: "", description: "", image: "" });
-  const navigate = useNavigate(); // Initialize useNavigate for navigation
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -11,41 +11,36 @@ const ProductAddPage = () => {
   };
 
   const handleFileChange = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] }); // Update the image file
+    setFormData({ ...formData, image: e.target.files[0] }); 
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Create a FormData object
     const data = new FormData();
     data.append("name", formData.name);
     data.append("description", formData.description);
     if (formData.image) {
-      data.append("image", formData.image); // Add the image file
+      data.append("image", formData.image);
     }
-
-    // Add product logic (POST request)
+  
     fetch("http://localhost:5000/api/products", {
       method: "POST",
       headers: {
-        "x-admin-password": "harvi_tools", // Add admin password header
+        "x-admin-password": "harvi_tools",
       },
-      body: data, // Send FormData
+      body: data,
     })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return response.json();
       })
       .then((data) => {
         console.log("Product added:", data);
-        console.log(data)
-        navigate("/admin-view"); // Redirect to Admin Products page
+        navigate("/admin-view");
       })
-      .catch((error) => console.log("Error:", error));
+      .catch((error) => console.error("Error:", error));
   };
-
+  
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-2xl font-semibold">Create Product</h1>

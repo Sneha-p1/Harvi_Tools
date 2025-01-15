@@ -10,19 +10,13 @@ const path = require('path');
 
 const cors = require("cors"); // Import CORS
 
-
-
-// Initialize dotenv to load environment variables
 dotenv.config();
 
 // Initialize Express
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-// Middleware to parse JSON bodies
 app.use(bodyParser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -36,7 +30,13 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 
-app.use(cors()); // Enable CORS
+const corsOptions = {
+    origin: 'http://localhost:5173', // Allow only requests from this origin
+};
+
+// Use CORS middleware with specified options
+app.use(cors(corsOptions));
+
 
 // Use routes
 app.use('/api/products', productRoutes);

@@ -4,92 +4,96 @@ const AdminViewPage = () => {
   const [products, setProducts] = useState([]);
   const [editProductId, setEditProductId] = useState(null);
   const [editForm, setEditForm] = useState({ name: "", description: "", image: null });
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Fetch all products
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/products");
+      const response = await fetch("http://localhost:5000/api/products", {
+        headers: {
+          "x-admin-password": "harvi_tools",
+        },
+      });
+
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }
       const data = await response.json();
-      console.log('data',data)
       setProducts(data);
     } catch (error) {
       console.error(error.message);
     }
   };
 
-  // Handle edit button click
   const handleEditClick = (product) => {
+    console.log("Editing Product ID:", product._id); 
     setEditProductId(product._id);
     setEditForm({ name: product.name, description: product.description, image: null });
+    setIsModalOpen(true); 
   };
 
-  // Handle file input change
   const handleFileChange = (e) => {
     setEditForm({ ...editForm, image: e.target.files[0] });
   };
 
-  // Handle edit form submission
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-
+  
     const data = new FormData();
     data.append("name", editForm.name);
     data.append("description", editForm.description);
     if (editForm.image) {
-      data.append("image", editForm.image); // Append the image file if it exists
+      data.append("image", editForm.image); 
     }
-
+  
+    console.log("FormData being sent:", Object.fromEntries(data.entries())); 
+  
     try {
       const response = await fetch(`http://localhost:5000/api/products/${editProductId}`, {
         method: "PUT",
         headers: {
           "x-admin-password": "harvi_tools",
         },
-        body: data, // Send FormData instead of JSON
+        body: data,
       });
-
+  
       if (!response.ok) {
         throw new Error("Failed to update product");
       }
-
+  
       const updatedProduct = await response.json();
+  
       setProducts((prev) =>
         prev.map((product) =>
-          product._id === updatedProduct._id ? updatedProduct : product
+          product._id === updatedProduct.data._id ? updatedProduct.data : product
         )
       );
-      setEditProductId(null);
-      setEditForm({ name: "", description: "", image: null });
+      setIsModalOpen(false);
     } catch (error) {
-      console.error(error.message);
     }
   };
 
-  // Handle delete product
-  const handleDelete = async (id) => {
+  const handleDelete = async (productId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+      const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
         method: "DELETE",
         headers: {
           "x-admin-password": "harvi_tools",
         },
       });
-
+  
       if (!response.ok) {
         throw new Error("Failed to delete product");
       }
-
-      setProducts((prev) => prev.filter((product) => product._id !== id));
+  
+      // If the deletion is successful, remove the product from the state
+      setProducts((prev) => prev.filter((product) => product._id !== productId));
     } catch (error) {
       console.error(error.message);
     }
   };
+  
 
-  // Fetch products on component mount
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -113,19 +117,15 @@ const AdminViewPage = () => {
           <tbody>
             {products.map((product) => (
               <tr key={product._id}>
-                <td className="border border-gray-300 px-4 py-2">
-                  {product.name}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {product.description}
-                </td>
+                <td className="border border-gray-300 px-4 py-2">{product.name}</td>
+                <td className="border border-gray-300 px-4 py-2">{product.description}</td>
                 <td className="border border-gray-300 px-4 py-2">
                   {product.image ? (
                     <img
-                    src={`http://localhost:5000/uploads/${product.image}`} 
-                    alt={product.name}
-                    className="w-16 h-16 object-cover"
-                  />
+                      src={`http://localhost:5000/uploads/${product.image}`}
+                      alt={product.name}
+                      className="w-16 h-16 object-cover"
+                    />
                   ) : (
                     <span>No image</span>
                   )}
@@ -150,52 +150,55 @@ const AdminViewPage = () => {
         </table>
       )}
 
-      {editProductId && (
-        <div className="mt-4">
-          <h2 className="text-xl font-bold mb-2">Edit Product</h2>
-          <form onSubmit={handleEditSubmit}>
-            <div className="mb-2">
-              <label className="block mb-1 font-semibold">Name</label>
-              <input
-                type="text"
-                value={editForm.name}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, name: e.target.value })
-                }
-                className="border border-gray-300 p-2 w-full"
-              />
-            </div>
-            <div className="mb-2">
-              <label className="block mb-1 font-semibold">Description</label>
-              <textarea
-                value={editForm.description}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, description: e.target.value })
-                }
-                className="border border-gray-300 p-2 w-full"
-              ></textarea>
-            </div>
-            <div className="mb-2">
-              <label className="block mb-1 font-semibold">Product Image</label>
-              <input
-                type="file"
-                onChange={handleFileChange}
-                className="border border-gray-300 p-2 w-full"
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-green-500 text-white px-4 py-2 rounded"
-            >
-              Save Changes
-            </button>
-            <button
-              onClick={() => setEditProductId(null)}
-              className="bg-gray-500 text-white px-4 py-2 ml-2 rounded"
-            >
-              Cancel
-            </button>
-          </form>
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-4 rounded shadow-md w-1/3">
+            <h2 className="text-xl font-bold mb-4">Edit Product</h2>
+            <form onSubmit={handleEditSubmit}>
+              <div className="mb-4">
+                <label className="block mb-1">Name</label>
+                <input
+                  type="text"
+                  value={editForm.name}
+                  onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
+                  className="border border-gray-300 p-2 w-full"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block mb-1">Description</label>
+                <textarea
+                  value={editForm.description}
+                  onChange={(e) =>
+                    setEditForm({ ...editForm, description: e.target.value })
+                  }
+                  className="border border-gray-300 p-2 w-full"
+                ></textarea>
+              </div>
+              <div className="mb-4">
+                <label className="block mb-1">Image</label>
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  className="border border-gray-300 p-2 w-full"
+                />
+              </div>
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  className="bg-gray-500 text-white px-4 py-2 mr-2 rounded"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="bg-green-500 text-white px-4 py-2 rounded"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
     </div>
