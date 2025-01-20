@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import img1 from '../assets/images/logo.jpeg';
-import About from "./About";
-import Footer from "./Footer";
+import img1 from "../assets/images/logo.jpeg";
 
 const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false); // To manage popup visibility
@@ -14,7 +12,7 @@ const Navbar = () => {
   // Function to handle password submission
   const handlePasswordSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await fetch("http://localhost:5000/api/validate-admin", {
         method: "POST",
@@ -23,21 +21,21 @@ const Navbar = () => {
         },
         body: JSON.stringify({ password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
-        // Navigate to the admin dashboard on success
-        navigate("/dashboard");
+        setError(""); // Clear any errors
+        setShowPopup(false); // Close the popup
+        navigate("/dashboard"); // Navigate to the admin dashboard
       } else {
-        // Display error message
-        setError(data.message || "Invalid password.");
+        setError(data.message || "Invalid password."); // Show error if invalid
       }
     } catch (error) {
-      setError("Something went wrong. Please try again.");
+      setError("Something went wrong. Please try again."); // Handle fetch errors
     }
   };
-
+  
   return (
     <>
       {/* Navbar */}
@@ -92,7 +90,6 @@ const Navbar = () => {
               >
                 PRODUCTS
               </a>
-              
               <a
                 href="/business"
                 className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
@@ -135,8 +132,9 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    setShowPopup(false);
-                    setError(""); // Clear any errors when closing
+                    setShowPopup(false); // Close popup
+                    setError(""); // Clear errors
+                    setPassword(""); // Clear password input
                   }}
                   className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
                 >
@@ -152,10 +150,7 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-        
       )}
-      {/* <About/> */}
-      {/* <Footer/> */}
     </>
   );
 };

@@ -1,30 +1,80 @@
-import React from 'react';
+import React, { useState } from "react";
 
-const ContactUs = () => {
+const ContactPage = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const contactData = { email, name, message };
+  
+    try {
+      const response = await fetch("http://localhost:5000/api/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contactData),
+      });
+  
+      const data = await response.json(); // Parse the response JSON
+  
+      if (response.ok) {
+        console.log("Message sent successfully:", data);
+        setSuccessMessage("Thank you! Your message has been sent.");
+        setEmail("");
+        setName("");
+        setMessage("");
+      } else {
+        console.error("Server returned an error:", data);
+        setSuccessMessage(`Error: ${data.error || "Failed to send message"}`);
+      }
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+      setSuccessMessage("An error occurred. Please try again.");
+    }
+  };
+  
   return (
-    <div className="min-h-screen  flex items-center justify-center">
-      <div className="w-[90%] max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden flex">
+    <div className="min-h-screen flex items-center justify-center ">
+      <div className="w-[90%] max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
         {/* Left Section */}
-        <div className="w-1/2 bg-blue-500 text-white p-8 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 bg-blue-500 text-white p-8 flex flex-col justify-center">
           <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
-          <form className="space-y-6">
+          {successMessage && (
+            <p className="text-green-300 mb-4 font-semibold">{successMessage}</p>
+          )}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            
             <div>
               <input
                 type="text"
-                placeholder="name"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
                 className="w-full bg-transparent border-b-2 border-white placeholder-white focus:outline-none focus:ring-0"
               />
             </div>
             <div>
               <input
                 type="email"
-                placeholder="email address"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="w-full bg-transparent border-b-2 border-white placeholder-white focus:outline-none focus:ring-0"
               />
             </div>
             <div>
               <textarea
-                placeholder="message"
+                placeholder="Message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
                 className="w-full bg-transparent border-b-2 border-white placeholder-white focus:outline-none focus:ring-0"
                 rows="4"
               ></textarea>
@@ -36,17 +86,22 @@ const ContactUs = () => {
               Submit
             </button>
           </form>
-          <p className="mt-6 text-sm">📞 25 546 9402</p>
+          <p className="mt-6 text-sm">📞 +91 8078417696</p>
+          <p className="mt-6 text-sm">Business Hours</p>
+          <p className="text-sm">Mon-Fri: 10 am-8 pm</p>
+          <p className="text-sm">Sat, Sun: Closed</p>
         </div>
 
         {/* Right Section */}
-        <div className="w-1/2 relative">
+        <div className="w-full md:w-1/2 relative">
           <iframe
-            title="Map"
-            className="w-full h-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509315!2d-122.41941548468282!3d37.77492977975915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085814d5f93aebd%3A0x4c8b5a322a1e53d5!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1613108177959!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206898.79208929816!2d77.03091305723868!3d8.253249228746848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05ad60665b92b1%3A0x533652f13fa22670!2sHARVI%20TOOLS!5e0!3m2!1sen!2sin!4v1737357037140!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
             allowFullScreen=""
             loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-[400px] md:h-full"
           ></iframe>
         </div>
       </div>
@@ -54,4 +109,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactPage;

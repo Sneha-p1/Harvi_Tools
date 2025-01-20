@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const productRoutes = require('./Routes/product'); // Import routes
 const adminRoutes = require("./Routes/admin");
+const messageRoutes = require("./Routes/message");
 const path = require('path');
 
 const cors = require("cors"); // Import CORS
@@ -39,6 +40,7 @@ app.use(cors(corsOptions));
 
 
 // Use routes
+app.use('/api/messages', messageRoutes);
 app.use('/api/products', productRoutes);
 app.use("/api", adminRoutes);
 

@@ -15,6 +15,7 @@ import ProductAddPage from "./pages/ProductAddPage";
 import Dashboard from "./pages/Dashboard";
 import AdminViewPage from "./pages/AdminViewPage";
 import MainLayout from "./layout/MainLayout";
+import MessagePage from "./pages/Message";
   
   function App() {
     const router = createBrowserRouter(
@@ -33,6 +34,8 @@ import MainLayout from "./layout/MainLayout";
           <Route path="/card" element={<ProductCard/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/admin-view" element={<AdminViewPage/>}/>
+          <Route path="/message" element={<MessagePage/>}/>
+
 
         </Route>
 
