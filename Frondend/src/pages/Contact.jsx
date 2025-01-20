@@ -86,10 +86,11 @@ const ContactPage = () => {
               Submit
             </button>
           </form>
-          <p className="mt-6 text-sm">📞 +91 8078417696</p>
-          <p className="mt-6 text-sm">Business Hours</p>
-          <p className="text-sm">Mon-Fri: 10 am-8 pm</p>
+          <p className="mt-6 mb-4 font-bold" >Business Hours</p>
+          <p className="text-sm">Mon-Fri: 10 am-8 pm </p>
           <p className="text-sm">Sat, Sun: Closed</p>
+          <p className="mt-6 text-sm">📞 +91 8078417696</p>
+
         </div>
 
         {/* Right Section */}

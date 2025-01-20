@@ -5,8 +5,7 @@ const ProductListPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/products", {
-      });
+      const response = await fetch("http://localhost:5000/api/products");
 
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -23,42 +22,54 @@ const ProductListPage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">User Product View</h1>
+    <div className="container mx-auto p-6">
+      <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">
+        Explore Our Products
+      </h1>
 
       {products.length === 0 ? (
-        <p>No products available</p>
+        <p className="text-center text-gray-600">No products available</p>
       ) : (
-        <table className="table-auto w-full border-collapse border border-gray-300">
-          <thead>
-            <tr>
-              <th className="border border-gray-300 px-4 py-2">Name</th>
-              <th className="border border-gray-300 px-4 py-2">Description</th>
-              <th className="border border-gray-300 px-4 py-2">Image</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product) => (
-              <tr key={product._id}>
-                <td className="border border-gray-300 px-4 py-2">{product.name}</td>
-                <td className="border border-gray-300 px-4 py-2">{product.description}</td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {product.image ? (
-                    <img
-                      src={`http://localhost:5000/uploads/${product.image}`}
-                      alt={product.name}
-                      className="w-16 h-16 object-cover"
-                    />
-                  ) : (
-                    <span>No image</span>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map((product) => (
+            <div
+              key={product._id}
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="relative h-56 w-full">
+                {product.image ? (
+                  <img
+                    src={`http://localhost:5000/uploads/${product.image}`}
+                    alt={product.name}
+                    className="w-full h-full object-cover rounded-t-lg"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
+                    No Image
+                  </div>
+                )}
+              </div>
+              <div className="p-4">
+                <h2 className="text-lg font-bold text-gray-800 mb-2">
+                  {product.name}
+                </h2>
+                <h3>
+                  <span className="text-lg font-semibold text-gray-800">
+                    {product.description}
+                  </span>
+                </h3>
+                <div className="flex items-center gap-2 mb-2">
+                 
+                </div>
+               
+                
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
 };
+
 export default ProductListPage;
