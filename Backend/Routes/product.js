@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 
-router.get('/', adminAuthMiddleware, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const products = await Product.find();
     if (products.length === 0) {
