@@ -2,129 +2,56 @@ import React from 'react';
 
 const ContactUs = () => {
   return (
-    <div className="relative min-h-screen bg-white text-black">
-      <div className="relative container mx-auto py-16 px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Section */}
-          <div className="space-y-8">
-            <h1 className="text-4xl font-bold uppercase">Contact Us</h1>
-
-            <div className="space-y-6">
-              {/* Call Us */}
-              <div className="flex items-start space-x-4">
-                <div className="text-blue-500 text-2xl">
-                  <i className="fas fa-phone-alt"></i>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">Call Us</h3>
-                  <p className="text-sm">+91-8078417696</p>
-                </div>
-              </div>
-
-              <hr className="border-gray-300" />
-
-              {/* Location */}
-              <div className="flex items-start space-x-4">
-                <div className="text-blue-500 text-2xl">
-                  <i className="fas fa-map-marker-alt"></i>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">Location</h3>
-                  <p className="text-sm">
-                    Adumancadu, Parasuvaikkal, Kerala 695508
-                  </p>
-                </div>
-              </div>
-
-              <hr className="border-gray-300" />
-
-              {/* Business Hours */}
-              <div className="flex items-start space-x-4">
-                <div className="text-blue-500 text-2xl">
-                  <i className="fas fa-clock"></i>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">Business Hours</h3>
-                  <p className="text-sm">
-                    Mon - Fri: 10 am - 8 pm<br />
-                    Sat, Sun: Closed
-                  </p>
-                </div>
-              </div>
+    <div className="min-h-screen  flex items-center justify-center">
+      <div className="w-[90%] max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden flex">
+        {/* Left Section */}
+        <div className="w-1/2 bg-blue-500 text-white p-8 flex flex-col justify-center">
+          <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
+          <form className="space-y-6">
+            <div>
+              <input
+                type="text"
+                placeholder="name"
+                className="w-full bg-transparent border-b-2 border-white placeholder-white focus:outline-none focus:ring-0"
+              />
             </div>
-          </div>
+            <div>
+              <input
+                type="email"
+                placeholder="email address"
+                className="w-full bg-transparent border-b-2 border-white placeholder-white focus:outline-none focus:ring-0"
+              />
+            </div>
+            <div>
+              <textarea
+                placeholder="message"
+                className="w-full bg-transparent border-b-2 border-white placeholder-white focus:outline-none focus:ring-0"
+                rows="4"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100 transition"
+            >
+              Submit
+            </button>
+          </form>
+          <p className="mt-6 text-sm">📞 25 546 9402</p>
+        </div>
 
-          {/* Right Section */}
-          <div className="bg-indigo-300 p-6 h-[590px] rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold mb-6">Contact Form</h2>
-            <form className="space-y-5">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="mt-2 p-2 w-full bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="mt-2 p-2 w-full bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="address" className="block text-sm font-medium">
-                  Address
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  className="mt-2 p-2 w-full bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your address"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows="4"
-                  className="mt-2 p-2 w-full bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your message"
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white font-bold py-2 rounded-lg hover:bg-blue-600 transition duration-200"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
+        {/* Right Section */}
+        <div className="w-1/2 relative">
+          <iframe
+            title="Map"
+            className="w-full h-full"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509315!2d-122.41941548468282!3d37.77492977975915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085814d5f93aebd%3A0x4c8b5a322a1e53d5!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1613108177959!5m2!1sen!2sin"
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
-      <hr className="border-gray-400" />
     </div>
-    
   );
 };
 
 export default ContactUs;
- 
