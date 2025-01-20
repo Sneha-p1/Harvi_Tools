@@ -2,15 +2,7 @@ import React from 'react';
 
 const ContactUs = () => {
   return (
-    <div
-      className="relative min-h-screen bg-cover bg-center text-white"
-      style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')",
-    }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-
+    <div className="relative min-h-screen bg-white text-black">
       <div className="relative container mx-auto py-16 px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Section */}
@@ -20,7 +12,7 @@ const ContactUs = () => {
             <div className="space-y-6">
               {/* Call Us */}
               <div className="flex items-start space-x-4">
-                <div className="text-blue-400 text-2xl">
+                <div className="text-blue-500 text-2xl">
                   <i className="fas fa-phone-alt"></i>
                 </div>
                 <div>
@@ -29,11 +21,11 @@ const ContactUs = () => {
                 </div>
               </div>
 
-              <hr className="border-gray-500" />
+              <hr className="border-gray-300" />
 
               {/* Location */}
               <div className="flex items-start space-x-4">
-                <div className="text-blue-400 text-2xl">
+                <div className="text-blue-500 text-2xl">
                   <i className="fas fa-map-marker-alt"></i>
                 </div>
                 <div>
@@ -44,11 +36,11 @@ const ContactUs = () => {
                 </div>
               </div>
 
-              <hr className="border-gray-500" />
+              <hr className="border-gray-300" />
 
               {/* Business Hours */}
               <div className="flex items-start space-x-4">
-                <div className="text-blue-400 text-2xl">
+                <div className="text-blue-500 text-2xl">
                   <i className="fas fa-clock"></i>
                 </div>
                 <div>
@@ -63,9 +55,9 @@ const ContactUs = () => {
           </div>
 
           {/* Right Section */}
-          <div className="bg-white bg-opacity-10 p-8 rounded-lg shadow-lg">
+          <div className="bg-indigo-300 p-6 h-[590px] rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold mb-6">Contact Form</h2>
-            <form className="space-y-6">
+            <form className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium">
                   Name
@@ -73,7 +65,7 @@ const ContactUs = () => {
                 <input
                   type="text"
                   id="name"
-                  className="mt-2 p-3 w-full bg-transparent border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="mt-2 p-2 w-full bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your name"
                   required
                 />
@@ -86,7 +78,7 @@ const ContactUs = () => {
                 <input
                   type="email"
                   id="email"
-                  className="mt-2 p-3 w-full bg-transparent border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="mt-2 p-2 w-full bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your email"
                   required
                 />
@@ -99,7 +91,7 @@ const ContactUs = () => {
                 <input
                   type="text"
                   id="address"
-                  className="mt-2 p-3 w-full bg-transparent border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="mt-2 p-2 w-full bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your address"
                   required
                 />
@@ -112,7 +104,7 @@ const ContactUs = () => {
                 <textarea
                   id="message"
                   rows="4"
-                  className="mt-2 p-3 w-full bg-transparent border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="mt-2 p-2 w-full bg-white border border-gray-300 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your message"
                   required
                 ></textarea>
@@ -120,7 +112,7 @@ const ContactUs = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-black font-bold py-3 rounded-lg hover:bg-blue-600 transition duration-200"
+                className="w-full bg-blue-500 text-white font-bold py-2 rounded-lg hover:bg-blue-600 transition duration-200"
               >
                 Submit
               </button>
@@ -128,8 +120,11 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      <hr className="border-gray-400" />
     </div>
+    
   );
 };
 
 export default ContactUs;
+ 

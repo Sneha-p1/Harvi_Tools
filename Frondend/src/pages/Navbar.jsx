@@ -81,7 +81,7 @@ const Navbar = () => {
           <div className="container mx-auto py-4 px-6">
             <div className="flex justify-center space-x-12">
               <a
-                href="/about"
+                href="/"
                 className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
               >
                 ABOUT
@@ -92,17 +92,12 @@ const Navbar = () => {
               >
                 PRODUCTS
               </a>
-              <a
-                href="/services"
-                className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
-              >
-                SERVICES
-              </a>
+              
               <a
                 href="/business"
                 className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
               >
-                BUSINESS
+                SERVICES
               </a>
               <a
                 href="/contact"
@@ -159,8 +154,8 @@ const Navbar = () => {
         </div>
         
       )}
-      <About/>
-      <Footer/>
+      {/* <About/> */}
+      {/* <Footer/> */}
     </>
   );
 };

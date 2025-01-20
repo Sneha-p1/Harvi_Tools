@@ -1,9 +1,12 @@
 import React from "react";
 import { FaBuilding, FaCompass, FaCheckCircle } from "react-icons/fa";
-import harviToolsImg from "../assets/images/ourjourney.jpg";
-import moldplasticImg from "../assets/images/moldplastic.jpg";
-import PresstoolImg from "../assets/images/Presstool.jpg";
-import LatheworkImg from "../assets/images/Lathework.jpeg";
+import harviToolsImg from "../assets/images/harviToolsImg.jpg";
+import PlasticMould1 from "../assets/images/PlasticMould1.jpg";
+import PlasticMould2 from "../assets/images/PlasticMould2.jpg";
+import PressTool1 from "../assets/images/PressTool1.jpeg";
+import PressTool2 from "../assets/images/PressTool2.jpg";
+import BlowMould1 from "../assets/images/BlowMould1.jpg";
+import BlowMould2 from "../assets/images/BlowMould2.jpg";
 import MillingworkImg from "../assets/images/Millingwork.jpeg";
 
 const Business = () => {
@@ -67,39 +70,54 @@ const Business = () => {
           </div>
         </div>
 
-        {/* Additional Details */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-          {/* Plastic Injection Section */}
 
-          <div>
-            <img
-              src={moldplasticImg}
-              alt="HARVI TOOLS"
-              className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-          </div>
 
-          <div>
-            <h2 className="text-3xl font-semibold mb-4">
-              Plastic Injection Mould Making
-            </h2>
-            <p className="mb-6">
-              We specialize in creating precise and durable plastic injection
-              moulds tailored to your requirements.
-            </p>
-          </div>
-        </div>
+        {/* Plastic Injection Mould */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+  <div className="grid grid-cols-2 gap-6">
+    <img
+      src={PlasticMould1}
+      alt="HARVI TOOLS"
+      className="rounded-lg shadow-xl h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+    />
+    <img
+      src={PlasticMould2}
+      alt="HARVI TOOLS"
+      className="rounded-lg shadow-xl h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+    />
+  </div>
+
+  <div>
+    <h2 className="text-3xl font-semibold mb-4">
+      Plastic Injection Mould Making
+    </h2>
+    <p className="mb-6">
+      We specialize in creating precise and durable plastic injection moulds tailored to your requirements.
+    </p>
+  </div>
+</div>
+
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center">
           {/* Press Tools Section */}
-
+      <div className="grid grid-cols-2 gap-6">
           <div>
             <img
-              src={PresstoolImg}
+              src={PressTool1}
+              alt="HARVI TOOLS"
+              className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
+          <div>
+            <img
+              src={PressTool2}
               alt="HARVI TOOLS"
               className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
               />
           </div>
+      </div>
 
           <div>
             <h2 className="text-3xl font-semibold mb-4">
@@ -112,15 +130,28 @@ const Business = () => {
           </div>
         </div>
 
+        
+
         {/* Services Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center">
           {/* Lathe Work */}
+          <div className="grid grid-cols-2 gap-6">
+
           <div>
             <img
-              src={LatheworkImg}
+              src={BlowMould1}
               alt="HARVI TOOLS"
               className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
               />
+          </div>
+
+          <div>
+            <img
+              src={BlowMould2}
+              alt="HARVI TOOLS"
+              className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
 
           <div>

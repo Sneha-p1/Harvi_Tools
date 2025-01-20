@@ -14,16 +14,18 @@ import ProductCard from "./pages/ProductCard";
 import ProductAddPage from "./pages/ProductAddPage";
 import Dashboard from "./pages/Dashboard";
 import AdminViewPage from "./pages/AdminViewPage";
+import MainLayout from "./layout/MainLayout";
   
   function App() {
     const router = createBrowserRouter(
       createRoutesFromElements(
         <>
-          
+        <Route path="/" element={<MainLayout />}>
+         
   
-          <Route path="/" element={<Navbar />}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/footer" element={<Footer/>}/>
+          {/* <Route path="/" element={<Navbar />}/> */}
+          <Route path="/" element={<About/>}/>
+          {/* <Route path="/footer" element={<Footer/>}/> */}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/business" element={<Business/>}/>
           <Route path="/product" element={<ProductListPage/>}/>
@@ -32,7 +34,7 @@ import AdminViewPage from "./pages/AdminViewPage";
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/admin-view" element={<AdminViewPage/>}/>
 
-
+        </Route>
 
 
 
