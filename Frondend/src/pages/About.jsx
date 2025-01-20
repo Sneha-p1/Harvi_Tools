@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaBuilding, FaTools, FaCheckCircle } from 'react-icons/fa'; // For icons
 import img2 from '../assets/images/pic.jpeg'; // Replace with your image path
+import Footer from './Footer';
 
 const About = () => {
   return (
@@ -73,7 +74,7 @@ const About = () => {
         </div>
       </div>
       <div className="border-t border-gray-700 my-6"></div>
-
+      <Footer/>
     </div>
   );
 };
