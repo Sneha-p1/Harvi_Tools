@@ -1,6 +1,6 @@
 import React from "react";
 import { FaBuilding, FaCompass, FaCheckCircle } from "react-icons/fa";
-import harviToolsImg from "../assets/images/harviToolsImg.jpg";
+import harviToolsImg from "../assets/images/Manufacturing-ANIM.gif";
 import PlasticMould1 from "../assets/images/PlasticMould1.jpg";
 import PlasticMould2 from "../assets/images/PlasticMould2.jpg";
 import PressTool1 from "../assets/images/PressTool1.jpeg";
@@ -20,8 +20,8 @@ const Business = () => {
       <div className="container mx-auto py-16 px-8 backdrop-blur-sm bg-white bg-opacity-50 rounded-lg">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold uppercase">Nature of Business</h1>
-          <p className="mt-4 text-lg">
+          <h1 className="text-4xl font-bold uppercase">Services</h1>
+          <p className="mt-4 text-2xl text-gray-500 font-medium">
             Explore the services and expertise offered by HARVI TOOLS
           </p>
         </div>
@@ -40,22 +40,29 @@ const Business = () => {
               from reputed multinational manufacturers by showcasing our
               commitment to excellence.
             </p>
+
             <h3 className="text-2xl font-semibold mt-8">Our Mission</h3>
             <ul className="space-y-4 mt-4">
               <li className="flex items-start">
-                <FaCheckCircle className="mr-3 text-green-400" />
-                <strong>Highest Quality:</strong> Delivering top-notch products
-                that meet industry standards.
+                <FaCheckCircle className="mr-3 mt-1 text-green-400" />
+                <div>
+                  <strong>Highest Quality:</strong> Delivering top-notch
+                  products that meet industry standards.
+                </div>
               </li>
               <li className="flex items-start">
-                <FaCheckCircle className="mr-3 text-green-400" />
-                <strong>Competitive Price:</strong> Providing value without
-                compromising quality.
+                <FaCheckCircle className="mr-3 mt-1 text-green-400" />
+                <div>
+                  <strong>Competitive Price:</strong> Providing value without
+                  compromising quality.
+                </div>
               </li>
               <li className="flex items-start">
-                <FaCheckCircle className="mr-3 text-green-400" />
-                <strong>Shortest Lead Time:</strong> Ensuring timely delivery to
-                meet customer demands.
+                <FaCheckCircle className="mr-3 mt-1 text-green-400" />
+                <div>
+                  <strong>Shortest Lead Time:</strong> Ensuring timely delivery
+                  to meet customer demands.
+                </div>
               </li>
             </ul>
           </div>
@@ -70,54 +77,51 @@ const Business = () => {
           </div>
         </div>
 
-
-
         {/* Plastic Injection Mould */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center">
-
-  <div className="grid grid-cols-2 gap-6">
-    <img
-      src={PlasticMould1}
-      alt="HARVI TOOLS"
-      className="rounded-lg shadow-xl h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
-    />
-    <img
-      src={PlasticMould2}
-      alt="HARVI TOOLS"
-      className="rounded-lg shadow-xl h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
-    />
-  </div>
-
-  <div>
-    <h2 className="text-3xl font-semibold mb-4">
-      Plastic Injection Mould Making
-    </h2>
-    <p className="mb-6">
-      We specialize in creating precise and durable plastic injection moulds tailored to your requirements.
-    </p>
-  </div>
-</div>
-
-
-<div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center">
-          {/* Press Tools Section */}
-      <div className="grid grid-cols-2 gap-6">
-          <div>
+          <div className="grid grid-cols-2 gap-6">
             <img
-              src={PressTool1}
+              src={PlasticMould1}
               alt="HARVI TOOLS"
-              className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+              className="rounded-lg shadow-xl h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+            <img
+              src={PlasticMould2}
+              alt="HARVI TOOLS"
+              className="rounded-lg shadow-xl h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-semibold mb-4">
+              Plastic Injection Mould Making
+            </h2>
+            <p className="mb-6">
+              We specialize in creating precise and durable plastic injection
+              moulds tailored to your requirements.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center">
+          {/* Press Tools Section */}
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <img
+                src={PressTool1}
+                alt="HARVI TOOLS"
+                className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            
-          <div>
-            <img
-              src={PressTool2}
-              alt="HARVI TOOLS"
-              className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+
+            <div>
+              <img
+                src={PressTool2}
+                alt="HARVI TOOLS"
+                className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
               />
+            </div>
           </div>
-      </div>
 
           <div>
             <h2 className="text-3xl font-semibold mb-4">
@@ -130,26 +134,23 @@ const Business = () => {
           </div>
         </div>
 
-        
-
         {/* Services Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center">
           {/* Lathe Work */}
           <div className="grid grid-cols-2 gap-6">
-
-          <div>
-            <img
-              src={BlowMould1}
-              alt="HARVI TOOLS"
-              className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+            <div>
+              <img
+                src={BlowMould1}
+                alt="HARVI TOOLS"
+                className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
               />
-          </div>
+            </div>
 
-          <div>
-            <img
-              src={BlowMould2}
-              alt="HARVI TOOLS"
-              className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
+            <div>
+              <img
+                src={BlowMould2}
+                alt="HARVI TOOLS"
+                className="rounded-lg shadow-xl mb-6 h-[300px] w-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
@@ -224,4 +225,4 @@ const Business = () => {
   );
 };
 
-export default Business;   
+export default Business;

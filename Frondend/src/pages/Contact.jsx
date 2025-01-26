@@ -42,7 +42,7 @@ const ContactPage = () => {
     <div className="min-h-screen flex items-center justify-center ">
       <div className="w-[90%] max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
         {/* Left Section */}
-        <div className="w-full md:w-1/2 bg-blue-500 text-white p-8 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 bg-gray-500 text-white p-8 flex flex-col justify-center">
           <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
           {successMessage && (
             <p className="text-green-300 mb-4 font-semibold">{successMessage}</p>
@@ -80,16 +80,17 @@ const ContactPage = () => {
               ></textarea>
             </div>
             <button
-              type="submit"
-              className="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100 transition"
-            >
-              Submit
-            </button>
+  type="submit"
+  className="bg-white text-blue-500 font-bold py-2 px-4 rounded transition duration-300 hover:bg-blue-600 hover:text-white"
+>
+  Submit
+</button>
+
           </form>
           <p className="mt-6 mb-4 font-bold" >Business Hours</p>
-          <p className="text-sm">Mon-Fri: 10 am-8 pm </p>
-          <p className="text-sm">Sat, Sun: Closed</p>
-          <p className="mt-6 text-sm">📞 +91 8078417696</p>
+          <p className="text-sm font-bold">Mon-Fri: 10 am-8 pm </p>
+          <p className="text-sm font-bold">Sat, Sun: Closed</p>
+          <p className="mt-6 text-sm font-bold">📞 +91 8078417696</p>
 
         </div>
 
