@@ -4,12 +4,12 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import img1 from "../assets/images/logo.jpeg";
 
 const Navbar = () => {
-  const [showPopup, setShowPopup] = useState(false); // To manage popup visibility
-  const [password, setPassword] = useState(""); // To store admin password input
-  const [error, setError] = useState(""); // To display error messages
-  const navigate = useNavigate(); // For navigation
+  const [showPopup, setShowPopup] = useState(false);
+  const [password, setPassword] = useState(""); 
+  const [error, setError] = useState(""); 
+  const navigate = useNavigate(); 
 
-  // Function to handle password submission
+
   const handlePasswordSubmit = async (e) => {
     e.preventDefault();
   
@@ -39,9 +39,11 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="bg-white shadow-lg">
+
+    <nav className="bg-black text-white">
+
         {/* Top Section: Logo and Social Media Icons */}
-        <div className="container mx-auto flex items-center justify-between py-6 px-6">
+        <div className="container mx-auto flex items-center justify-between py-4 px-4">
           {/* Left Section: Logo */}
           <div className="flex items-center space-x-4">
             <img
@@ -49,68 +51,75 @@ const Navbar = () => {
               alt="Logo"
               className="h-16 w-auto shadow-lg rounded-full"
             />
-            <div>
-              <h1 className="text-3xl font-extrabold text-gray-800 tracking-wide">
-                HARVI TOOLS
-              </h1>
-              <p className="text-md text-gray-500 font-medium">SINCE 2019</p>
+
+
+            <div className="text-2xl font-bold tracking-wide">
+              <span className="text-white">HARVI</span> 
+              <span className="text-yellow-500 ml-2">TOOLS</span>
+              <p className="text-sm text-md text-gray-300 font-medium">SINCE 2019</p>
+
             </div>
+
+
+            <div className="bg-black text-white shadow-md">
+          <div className="container mx-auto py-4 px-6 ml-[20%]">
+            <div className="flex justify-center space-x-12">
+              <a
+                href="/"
+                className="text-sm font-bold hover:text-yellow-500 transition-all duration-300"
+              >
+                ABOUT
+              </a>
+              <a
+                href="/product"
+                className="text-sm font-bold hover:text-yellow-500 transition-all duration-300"
+              >
+                PRODUCTS
+              </a>
+              <a
+                href="/business"
+                className="text-sm font-bold hover:text-yellow-500 transition-all duration-300"
+              >
+                SERVICES
+              </a>
+              <a
+                href="/contact"
+                className="text-sm font-bold hover:text-yellow-500 transition-all duration-300"
+              >
+                CONTACT
+              </a>
+              <button
+                onClick={() => setShowPopup(true)}
+                className="text-sm font-bold hover:text-yellow-500 transition-all duration-300"
+              >
+                DASHBOARD
+              </button>
+                </div>
           </div>
+        </div>
+
+      </div>
+
 
           {/* Right Section: Social Media Icons */}
           <div className="flex items-center space-x-6">
             <a
               href="#"
-              className="text-gray-600 hover:text-red-500 transition-all duration-300"
+              className="text-gray-400 hover:text-red-500 transition-all duration-300"
             >
               <i className="fab fa-youtube text-3xl"></i>
             </a>
             <a
               href="#"
-              className="text-gray-600 hover:text-pink-500 transition-all duration-300"
+              className="text-gray-400 hover:text-pink-500 transition-all duration-300"
             >
               <i className="fab fa-instagram text-3xl"></i>
             </a>
           </div>
         </div>
 
-        {/* Bottom Section: Blue Navigation Bar */}
-        <div className="bg-blue-600 text-white shadow-md">
-          <div className="container mx-auto py-4 px-6">
-            <div className="flex justify-center space-x-12">
-              <a
-                href="/"
-                className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
-              >
-                ABOUT
-              </a>
-              <a
-                href="/product"
-                className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
-              >
-                PRODUCTS
-              </a>
-              <a
-                href="/business"
-                className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
-              >
-                SERVICES
-              </a>
-              <a
-                href="/contact"
-                className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
-              >
-                CONTACT
-              </a>
-              <button
-                onClick={() => setShowPopup(true)}
-                className="hover:underline text-lg font-semibold tracking-wide transition-all duration-300"
-              >
-                DASHBOARD
-              </button>
-            </div>
-          </div>
-        </div>
+
+
       </nav>
 
       {/* Popup for Admin Password */}
@@ -155,4 +164,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;     

@@ -2,52 +2,52 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-light-blue text-gray-800 py-8 px-4"> 
+    <footer className="bg-black text-gray-800 py-8 px-4"> 
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* Company Info */}
-          <div className="md:w-1/3">
-            <h3 className="text-lg font-serif text-blue-500 mb-4">HARVI TOOLS</h3>
+          <div className="md:w-1/3 ml-[1%]">
+            <h3 className="text-lg font-serif text-yellow-500 mb-4">HARVI TOOLS</h3>
             {/* <img src="logo.png" alt="HARVI TOOLS Logo" className="w-20 h-20 mb-4" />  */}
-            <p className="text-[16px] leading-relaxed">
+            <p className="text-white text-[16px] leading-relaxed">
               Specialists in precision moulds and tools manufacturing. Delivering high-quality products tailored to meet your specific needs.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="md:w-1/3">
-            <h4 className="text-lg font-semibold text-blue-500 mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-[16px]">
+          <div className="md:w-1/3 text-gray-400">
+            <h4 className="text-lg font-serif text-yellow-500 mb-4 text-center">QUICK LINKS</h4>
+            <ul className="space-y-2 text-[16px] ml-[36%]">
               <li>
-                <a href="#about" className="hover:text-blue-400">About Us</a>
+                <a href="#about" className="text-white hover:text-yellow-500">About Us</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-blue-400">Our Services</a>
+                <a href="#services" className="text-white hover:text-yellow-500">Our Services</a>
               </li>
               <li>
-                <a href="#products" className="hover:text-blue-400">Products</a>
+                <a href="#products" className="text-white hover:text-yellow-500">Products</a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-blue-400">Contact Us</a>
+                <a href="/contact" className="text-white hover:text-yellow-500">Contact Us</a>
               </li>
             </ul>
           </div>
 
           {/* Contact Information */}
           <div className="md:w-1/3">
-            <h4 className="text-lg font-semibold text-blue-500 mb-4">Contact Us</h4>
-            <p className="text-[16px]">
-              <span className="font-medium">Address:</span> Adumancadu, Parasuvaikkal, Kerala 695508
+            <h4 className="text-lg font-serif text-yellow-500 mb-4">CONTACT US</h4>
+            <p className="text-white text-[16px]">
+              <span className="text-white font-medium">Address:</span> Adumancadu, Parasuvaikkal, Kerala 695508
             </p>
             <p className="text-[16px] mt-2">
-              <span className="font-medium">Phone:</span>{' '}
-              <a href="tel:08078417696" className="hover:text-blue-400">
+              <span className="text-white font-medium">Phone:</span>{' '}
+              <a href="tel:08078417696" className="text-white hover:text-yellow-500">
                 +91-8078417696
               </a>
             </p>
             <p className="text-[16px] mt-2">
-              <span className="font-medium">Email:</span>{' '}
-              <a href="mailto:harviplastics@gmail.com" className="hover:text-blue-400">
+              <span className="text-white font-medium">Email:</span>{' '}
+              <a href="mailto:harviplastics@gmail.com" className="text-white hover:text-yellow-500">
                 harviplastics@gmail.com
               </a>
             </p>
@@ -58,7 +58,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 my-6"></div>
 
         {/* Copyright */}
-        <div className="text-center text-[16px]">
+        <div className="text-yellow-500 text-center text-[15px]">
           <p>&copy; {new Date().getFullYear()} HARVI TOOLS. All Rights Reserved.</p>
         </div>
       </div>
