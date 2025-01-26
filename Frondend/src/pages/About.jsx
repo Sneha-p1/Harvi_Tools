@@ -2,8 +2,10 @@ import React from 'react';
 import aboutimg from '../assets/images/about.jpg';
 import Footer from './Footer';
 import Rotate from './Rotate';
+import img1 from '../assets/images/aaaa.jpg';
 
 const About = () => {
+
   return (
     <div
       className="about-container bg-cover bg-center text-black"
@@ -12,12 +14,39 @@ const About = () => {
       }}
     >
    
-<div className="bg-black text-center text-white py-16 px-4">
-        <h1 className="text-2xl md:text-3xl font-semibold uppercase leading-relaxed tracking-normal">
-            Delivering high-quality products tailored to <br />
-            <span className="text-yellow-500">meet your specific needs.</span>
-        </h1>
+   <div class="bg-black text-white py-16 px-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
+    {/* <!-- Text Section --> */}
+    <div class="md:w-1/2 text-center md:text-left">
+      <h1 class="text-3xl md:text-4xl font-bold uppercase leading-snug tracking-wide">
+        Delivering high-quality products tailored to <br />
+        <span class="text-yellow-500">meet your specific needs.</span>
+      </h1>
+      <p class="mt-4 text-sm text-gray-400">
+        Engineered to exceed expectations, our solutions prioritize performance, reliability, and innovation.  
+        Each product is crafted with attention to detail, ensuring it aligns perfectly with your goals.  
+        Experience excellence designed to transform your vision into reality.
+      </p>
+    </div>
+
+    {/* <!-- Image Animation Section --> */}
+    <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center relative">
+      <div class="w-72 h-72 rounded-full overflow-hidden relative">
+        {/* <!-- Images --> */}
+        <img
+          src={img1}
+          alt="Image 1"
+          class="absolute w-full h-full object-cover rounded-full fade-image opacity-100"
+        />
+
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
 
 <div className="relative bg-gray-100 p-8">
       <div className="max-w-5xl mx-auto">
