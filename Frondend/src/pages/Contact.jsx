@@ -39,8 +39,8 @@ const ContactPage = () => {
   };
   
   return (
-    <div className="min-h-screen flex items-center justify-center ">
-      <div className="w-[90%] max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-[75%] max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
         {/* Left Section */}
         <div className="w-full md:w-1/2 bg-gray-500 text-white p-8 flex flex-col justify-center">
           <h1 className="text-3xl font-bold mb-8">Contact Us</h1>
