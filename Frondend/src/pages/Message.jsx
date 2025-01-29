@@ -25,7 +25,7 @@ const MessagePage = () => {
             <h1 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">Messages</h1>
             <div className="overflow-x-auto shadow-lg rounded-lg">
                 <table className="min-w-full bg-white border border-gray-200 rounded-lg">
-                    <thead className="bg-blue-600 text-white">
+                    <thead className="bg-yellow-800 text-white">
                         <tr>
                             <th className="py-3 px-6 text-left text-sm font-semibold">Name</th>
                             <th className="py-3 px-6 text-left text-sm font-semibold">Email</th>
@@ -40,8 +40,8 @@ const MessagePage = () => {
                                     key={message._id}
                                     className={
                                         index % 2 === 0
-                                            ? 'bg-gray-50 hover:bg-gray-100'
-                                            : 'bg-white hover:bg-gray-100'
+                                            ? 'bg-yellow-50 hover:bg-yellow-100'
+                                            : 'bg-white hover:bg-yellow-100'
                                     }
                                 >
                                     <td className="py-4 px-6 text-sm text-gray-700">{message.name}</td>
