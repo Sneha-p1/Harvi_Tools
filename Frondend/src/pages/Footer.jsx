@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-800 py-8 px-4"> 
+    <footer className="bg-black text-gray-800 py-8 px-4">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* Company Info */}
           <div className="md:w-1/3 ml-[1%]">
             <h3 className="text-lg font-serif text-yellow-500 mb-4">HARVI TOOLS</h3>
-            {/* <img src="logo.png" alt="HARVI TOOLS Logo" className="w-20 h-20 mb-4" />  */}
+            {/* <img src="logo.png" alt="HARVI TOOLS Logo" className="w-20 h-20 mb-4" /> */}
             <p className="text-white text-[16px] leading-relaxed">
               Specialists in precision moulds and tools manufacturing. Delivering high-quality products tailored to meet your specific needs.
             </p>
@@ -16,8 +16,8 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="md:w-1/3 text-gray-400">
-            <h4 className="text-lg font-serif text-yellow-500 mb-4 mr-8 text-center">QUICK LINKS</h4>
-            <ul className="space-y-2 text-[16px] ml-[36%]">
+            <h4 className="text-lg font-serif text-yellow-500 mb-4  md:text-left">QUICK LINKS</h4>
+            <ul className="space-y-2 text-[16px]  md:text-left">
               <li>
                 <a href="/" className="text-white hover:text-yellow-500">About Us</a>
               </li>
