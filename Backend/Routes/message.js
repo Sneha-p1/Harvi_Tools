@@ -4,8 +4,8 @@ const Message = require('../Models/message');
 
 router.post('/', async (req, res) => {
     try {
-        const {name , email, message } = req.body;
-        const newMessage = new Message({ name , email, message });
+        const {name , email, message,phoneNumber } = req.body;
+        const newMessage = new Message({ name , email, message,phoneNumber });
         await newMessage.save();
         res.status(201).json(newMessage);
     } catch (error) {

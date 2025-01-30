@@ -29,6 +29,7 @@ const MessagePage = () => {
                         <tr>
                             <th className="py-3 px-6 text-left text-sm font-semibold">Name</th>
                             <th className="py-3 px-6 text-left text-sm font-semibold">Email</th>
+                            <th className="py-3 px-6 text-left text-sm font-semibold">Phone Number</th>
                             <th className="py-3 px-6 text-left text-sm font-semibold">Message</th>
                             <th className="py-3 px-6 text-left text-sm font-semibold">Sent At</th>
                         </tr>
@@ -46,6 +47,7 @@ const MessagePage = () => {
                                 >
                                     <td className="py-4 px-6 text-sm text-gray-700">{message.name}</td>
                                     <td className="py-4 px-6 text-sm text-gray-700">{message.email}</td>
+                                    <td className="py-4 px-6 text-sm text-gray-700">{message.phoneNumber}</td>
                                     <td className="py-4 px-6 text-sm text-gray-700">{message.message}</td>
                                     <td className="py-4 px-6 text-sm text-gray-700">
                                         {new Date(message.createdAt).toLocaleString()}

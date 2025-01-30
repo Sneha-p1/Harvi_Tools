@@ -16,7 +16,14 @@ const messageSchema = new mongoose.Schema({
     message: {
         type: String,
         required: true,
+    },
+    phoneNumber: {
+        type: String,
+        required: true,
+        unique: true, 
+        match: [/^\d{10}$/, "Please enter a valid 10-digit phone number"] // Adjust regex as needed
     }
+    
 }, { timestamps: true });
 
 module.exports = mongoose.model('Message', messageSchema);
