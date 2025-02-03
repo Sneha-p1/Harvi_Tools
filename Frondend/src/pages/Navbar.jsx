@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import img1 from "../assets/images/logo.jpeg";
+import ('./Navbar.css')
 
 const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -130,41 +131,50 @@ const Navbar = () => {
 
       {/* Popup for Admin Password */}
       {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-80">
-            <h2 className="text-lg font-bold mb-4">Enter Admin Password</h2>
-            <form onSubmit={handlePasswordSubmit}>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-2 border rounded mb-4"
-                placeholder="Password"
-                required
-              />
-              {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
-              <div className="flex justify-end space-x-4">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowPopup(false);
-                    setError("");
-                    setPassword("");
-                  }}
-                  className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
+        <div 
+        className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50"
+        style={{ animation: 'fadeIn 0.2s ease-in' }}
+      >
+        <div 
+          className="bg-white p-6 rounded-lg shadow-2xl w-80 relative"
+          style={{ 
+            animation: 'popIn 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)',
+            transformOrigin: 'center center'
+          }}
+        >
+          <h2 className="text-lg font-bold mb-4">Enter Admin Password</h2>
+          <form onSubmit={handlePasswordSubmit}>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 border rounded mb-4 focus:ring-2 focus:ring-yellow-200 focus:border-yellow-400"
+              placeholder="Password"
+              required
+            />
+            {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+            <div className="flex justify-end space-x-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowPopup(false);
+                  setError("");
+                  setPassword("");
+                }}
+                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-500 transition-colors shadow-md font-semibold"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
       )}
     </>
   );
