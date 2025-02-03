@@ -1,58 +1,61 @@
-import React from 'react';
+ import React from 'react';
 import { Link } from "react-router-dom";
-import img from "../assets/images/CreateProduct.jpg";
-import img1 from "../assets/images/ViewProduct.jpg";
-import img2 from "../assets/images/Message.jpg";
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-black">
       {/* Container for Dashboard */}
-      <div className="max-w-5xl w-full bg-white rounded-lg shadow-2xl p-10">
+      <div className="max-w-5xl w-full">
         
         {/* Dashboard Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Create Product Section */}
-          <div className="bg-blue-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <img
-              src={img}
-              alt="Create Product"
-              className="rounded-lg h-48 w-full object-cover"
-            />
-            <h2 className="text-3xl font-bold text-blue-700 mb-4">Create Product</h2>
-            <p className="mb-6 text-gray-700">Add a new product to the inventory.</p>
-            <Link to="/admin">
-              <button className="bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-800 transition duration-300 shadow-md">Create</button>
-            </Link>
+          <div className="bg-black/60 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition duration-300 border border-yellow-400/20 p-8">
+            <div className="flex flex-col items-center">
+              <div className="h-20 w-20 flex items-center justify-center bg-yellow-400/10 rounded-full mb-6">
+                <span className="text-4xl text-yellow-400">➕</span>
+              </div>
+              <h2 className="text-2xl font-bold text-yellow-400 mb-4">Create Product</h2>
+              <p className="mb-6 text-gray-300 text-center">Add a new product to the inventory.</p>
+              <Link to="/admin">
+                <button className="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300 shadow-md">
+                  Create
+                </button>
+              </Link>
+            </div>
           </div>
           
           {/* View Product Section */}
-          <div className="bg-green-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <img
-              src={img1}
-              alt="View Products"
-              className="rounded-lg h-48 w-full object-cover"
-            />
-            <h2 className="text-3xl font-bold text-green-700 mb-4">View Products</h2>
-            <p className="mb-6 text-gray-700">View all the products in the inventory.</p>
-            <Link to="/admin-view">
-              <button className="bg-green-600 text-white py-3 px-6 rounded-full hover:bg-green-800 transition duration-300 shadow-md">View</button>
-            </Link>
+          <div className="bg-black/60 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition duration-300 border border-yellow-400/20 p-8">
+            <div className="flex flex-col items-center">
+              <div className="h-20 w-20 flex items-center justify-center bg-yellow-400/10 rounded-full mb-6">
+                <span className="text-4xl text-yellow-400">📋</span>
+              </div>
+              <h2 className="text-2xl font-bold text-yellow-400 mb-4">View Products</h2>
+              <p className="mb-6 text-gray-300 text-center">View all the products in the inventory.</p>
+              <Link to="/admin-view">
+                <button className="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300 shadow-md">
+                  View
+                </button>
+              </Link>
+            </div>
           </div>
 
           {/* Outsider Message Section */}
-          <div className="bg-gray-200 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <img
-              src={img2}
-              alt="Message for Outsiders"
-              className="rounded-lg h-48 w-full object-cover"
-            />
-            <h2 className="text-3xl font-bold text-gray-700 mb-4">View Messages</h2>
-            <p className="mb-6 text-gray-700">Check messages from outsiders here.</p>
-            <Link to="/message">
-              <button className="bg-gray-600 text-white py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300 shadow-md">Read Message</button>
-            </Link>
+          <div className="bg-black/60 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition duration-300 border border-yellow-400/20 p-8">
+            <div className="flex flex-col items-center">
+              <div className="h-20 w-20 flex items-center justify-center bg-yellow-400/10 rounded-full mb-6">
+                <span className="text-4xl text-yellow-400">📩</span>
+              </div>
+              <h2 className="text-2xl font-bold text-yellow-400 mb-4">View Messages</h2>
+              <p className="mb-6 text-gray-300 text-center">Check messages from outsiders here.</p>
+              <Link to="/message">
+                <button className="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300 shadow-md">
+                  Read Message
+                </button>
+              </Link>
+            </div>
           </div>
 
         </div>
