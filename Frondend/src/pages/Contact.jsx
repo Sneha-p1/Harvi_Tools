@@ -41,12 +41,12 @@ const ContactPage = () => {
   };
 
   return (
-    <div
-    className="min-h-screen flex items-center justify-center bg-cover bg-center"
-    style={{
-      backgroundImage: "url('https://source.unsplash.com/random')", // Replace with your background image URL
-    }}
-  >
+<div
+  className="min-h-screen flex items-center justify-center  bg-cover bg-center"
+  
+ 
+>
+
     <div className="w-[90%] max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-black/70 text-white rounded-lg overflow-hidden">
       {/* Contact Form Section */}
       <div className="col-span-1 p-10">
@@ -117,20 +117,7 @@ const ContactPage = () => {
           <p className="text-sm font-bold">Mon-Fri: 10 am-8 pm</p>
           <p className="text-sm font-bold">Sat, Sun: Closed</p>
           <p className="mt-6 text-sm font-bold">📞 +91 8078417696</p>
-        <div className="flex space-x-4 text-2xl">
-          <a href="#" className="hover:text-yellow-500">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" className="hover:text-yellow-500">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#" className="hover:text-yellow-500">
-            <i className="fab fa-dribbble"></i>
-          </a>
-          <a href="#" className="hover:text-yellow-500">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-        </div>
+       
       </div>
     </div>
   </div>
