@@ -6,10 +6,7 @@ const ProductListPage = () => {
   const fetchProducts = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/products");
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch products");
-      }
+      if (!response.ok) throw new Error("Failed to fetch products");
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -22,52 +19,57 @@ const ProductListPage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">
-        Explore Our Products
-      </h1>
-
-      {products.length === 0 ? (
-        <p className="text-center text-gray-600">No products available</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div
-              key={product._id}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative h-56 w-full">
-                {product.image ? (
-                  <img
-                    src={`http://localhost:5000/uploads/${product.image}`}
-                    alt={product.name}
-                    className="w-full h-full object-cover rounded-t-lg"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
-                    No Image
-                  </div>
-                )}
-              </div>
-              <div className="p-4">
-                <h2 className="text-lg font-bold text-gray-800 mb-2">
-                  {product.name}
-                </h2>
-                <h3>
-                  <span className="text-lg font-semibold text-gray-800">
-                    {product.description}
-                  </span>
-                </h3>
-                <div className="flex items-center gap-2 mb-2">
-                 
-                </div>
-               
-                
-              </div>
-            </div>
-          ))}
+    <div className="bg-black min-h-screen">
+      <div className="max-w-7xl mx-auto py-16 px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold uppercase mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
+            Explore Our Products
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Discover our premium collection of tools and accessories
+          </p>
         </div>
-      )}
+
+        {products.length === 0 ? (
+          <div className="text-center py-20">
+            <p className="text-2xl text-gray-400">No products available</p>
+            <p className="text-gray-500 mt-2">Please check back later</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {products.map((product) => (
+              <div
+                key={product._id}
+                className="group bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <div className="relative h-60 overflow-hidden">
+                  {product.image ? (
+                    <img
+                      src={`http://localhost:5000/uploads/${product.image}`}
+                      alt={product.name}
+                      className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-500">
+                      No Image
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+                </div>
+
+                <div className="p-4">
+                  <h2 className="text-xl font-bold text-white mb-2">
+                    {product.name}
+                  </h2>
+                  <p className="text-gray-300 text-sm">
+                    {product.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
