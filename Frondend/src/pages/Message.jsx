@@ -22,6 +22,12 @@ const MessagePage = () => {
 
     return (
         <div className="container mx-auto my-10 px-4 sm:px-6 lg:px-8">
+              <button
+          onClick={() => navigate('/dashboard')}
+className="text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-300 font-semibold rounded-lg px-6 py-3 transition-all duration-300 ease-in-out transform hover:scale-105"
+        >
+          ← Back to Dashboard
+        </button>
             <h1 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">Messages</h1>
             <div className="overflow-x-auto shadow-lg rounded-lg">
                 <table className="min-w-full bg-white border border-gray-200 rounded-lg">
