@@ -271,13 +271,13 @@ const Business = () => {
       >
         <motion.h1
           variants={fadeInUp}
-          className="text-5xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500"
+          className="text-4xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500"
         >
           Services
         </motion.h1>
         <motion.p
           variants={fadeInUp}
-          className="mt-4 text-xl text-gray-300"
+          className="mt-4 text-lg text-gray-300"
         >
           Explore the services and expertise offered by HARVI TOOLS
         </motion.p>
