@@ -3,6 +3,7 @@ import aboutimg from '../assets/images/about.jpg';
 import Footer from './Footer';
 import Rotate from './Rotate';
 import img1 from '../assets/images/aaaa.jpg';
+import ImageSlider from './ImageSlider';
 
 const About = () => {
 
@@ -14,36 +15,27 @@ const About = () => {
       }}
     >
    
-   <div class="bg-black text-white py-16 px-8">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
-    {/* <!-- Text Section --> */}
-    <div class="md:w-1/2 text-center md:text-left">
-      <h1 class="text-3xl md:text-4xl font-bold uppercase leading-snug tracking-wide">
+   <div className="bg-black text-white min-h-screen flex items-center justify-center px-8">
+  <div className="max-w-7xl w-full flex flex-col md:flex-row items-center">
+    {/* Text Section */}
+    <div className="md:w-1/2 text-center md:text-left">
+      <h1 className="text-4xl md:text-4xl font-bold uppercase leading-snug tracking-wide">
         Delivering high-quality products tailored to <br />
-        <span class="text-yellow-500">meet your specific needs.</span>
+        <span className="text-yellow-500">meet your specific needs.</span>
       </h1>
-      <p class="mt-4 text-sm text-gray-400">
+      <p className="mt-4 text-md text-gray-400">
         Engineered to exceed expectations, our solutions prioritize performance, reliability, and innovation.  
         Each product is crafted with attention to detail, ensuring it aligns perfectly with your goals.  
         Experience excellence designed to transform your vision into reality.
       </p>
     </div>
 
-    {/* <!-- Image Animation Section --> */}
-    <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center relative">
-      <div class="w-72 h-72 rounded-full overflow-hidden relative">
-        {/* <!-- Images --> */}
-        <img
-          src={img1}
-          alt="Image 1"
-          class="absolute w-full h-full object-cover rounded-full fade-image opacity-100"
-        />
-
-      </div>
-    </div>
+    {/* Image Animation Section */}
+    <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center relative">
+  <ImageSlider />
+</div>
   </div>
 </div>
-
 
 
 
@@ -98,92 +90,9 @@ Our advanced tools and skilled team ensure top-quality products that meet indust
           </p>
          
         </div>
-        {/* <ul className="list-disc mt-6 text-lg text-gray-700 ml-72">
-            <li>Custom moulds tailored to your exact specifications.</li>
-            <li>Specialized tools crafted with precision and care.</li>
-            <li>Stringent quality control processes to exceed industry standards.</li>
-          </ul> */}
+
     </div>
 
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-      {/* <div className="container mx-auto py-16 px-8 backdrop-blur-sm bg-white bg-opacity-50 rounded-lg">
-       
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold uppercase">About Us</h1>
-          <p className="mt-4 text-lg">Learn more about HARVI TOOLS and what we do</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12"> */}
-        
-          {/* <div className="headquarters-section">
-            <h2 className="text-3xl font-semibold mb-4 flex items-center">
-              <FaBuilding className="mr-3 text-blue-400" /> Headquarters
-            </h2>
-            <img src={img2} alt="Headquarters" className="rounded-lg shadow-lg mb-6 h-[400px] w-[650px]" />
-          </div> */}
-
-         
-          {/* <div className="about-section">
-            <h2 className="text-3xl font-semibold mb-4 flex items-center">
-              <FaTools className="mr-3 text-blue-400" /> About Us
-            </h2>
-            <p className="mb-6">
-              Welcome to <strong>HARVI TOOLS</strong>. At HARVI TOOLS, we specialize in the design and manufacturing of
-              high-quality plastic injection moulds and press tools. With a proven track record of delivering
-              precision-engineered products, we cater to a wide range of industries, ensuring customized solutions
-              tailored to your specific needs.
-            </p>
-            <p className="mb-6">
-              <strong>Our vision:</strong> To be a trusted leader in India's precision engineering industry by
-              understanding customer needs and delivering products that exceed expectations.
-            </p>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <FaCheckCircle className="mr-3 text-green-400" />
-                Expertise in Precision Engineering: Our advanced toolroom is equipped with cutting-edge technology,
-                including EDM machines and a range of conventional machinery, enabling us to achieve unparalleled
-                precision and quality.
-              </li>
-              <li className="flex items-start">
-                <FaCheckCircle className="mr-3 text-green-400" />
-                Whether you need custom moulds or specialized tools, we work closely with you to deliver products that
-                meet your exact specifications.
-              </li>
-              <li className="flex items-start">
-                <FaCheckCircle className="mr-3 text-green-400" />
-                Our stringent quality control processes ensure every product we manufacture exceeds industry standards.
-              </li>
-            </ul>
-          </div> */}
-        {/* </div> */}
-
-        {/* Call to Action */}
-        {/* <div className="text-center mt-12">
-          <p className="text-xl mb-4">
-            At HARVI TOOLS, we are committed to delivering excellence in every product, ensuring customer satisfaction.
-          </p>
-          <p className="text-lg font-medium">
-            Contact us today to discuss your requirements and let us bring your vision to life with our expertise and
-            innovation.
-          </p>
-        </div> */}
-      {/* </div> */}
-
-      {/* <div className="border-t border-gray-700 my-6"></div> */}
       <Footer/>
     </div>
   );
@@ -192,80 +101,5 @@ Our advanced tools and skilled team ensure top-quality products that meet indust
 export default About;      
 
 
-// import React from 'react';
-// import { FaBuilding, FaTools, FaCheckCircle } from 'react-icons/fa';
-// import img2 from '../assets/images/pic.jpeg';
-// import Footer from './Footer';
 
-// const About = () => {
-//   return (
-//     <div className="about-container bg-black text-white">
-//       <div className="container mx-auto py-16 px-8">
-//         {/* Header */}
-//         <div className="text-center mb-12">
-//           <h1 className="text-4xl font-bold uppercase text-yellow-500">About Us</h1>
-//           <p className="mt-4 text-lg text-gray-300">Learn more about HARVI TOOLS and what we do</p>
-//         </div>
-
-//         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-//           {/* Headquarters Section */}
-//           <div className="headquarters-section">
-//             <h2 className="text-3xl font-semibold mb-4 flex items-center">
-//               <FaBuilding className="mr-3 text-yellow-500" /> Headquarters
-//             </h2>
-//             <img src={img2} alt="Headquarters" className="rounded-lg shadow-lg mb-6 h-[400px] w-[650px]" />
-//           </div>
-
-//           {/* About Us Section */}
-//           <div className="about-section">
-//             <h2 className="text-3xl font-semibold mb-4 flex items-center">
-//               <FaTools className="mr-3 text-yellow-500" /> About Us
-//             </h2>
-//             <p className="mb-6 text-gray-300">
-//               Welcome to <strong className="text-yellow-500">HARVI TOOLS</strong>. At HARVI TOOLS, we specialize in the design and manufacturing of
-//               high-quality plastic injection moulds and press tools. With a proven track record of delivering
-//               precision-engineered products, we cater to a wide range of industries, ensuring customized solutions
-//               tailored to your specific needs.
-//             </p>
-//             <p className="mb-6 text-gray-300">
-//               <strong className="text-yellow-500">Our vision:</strong> To be a trusted leader in India's precision engineering industry by
-//               understanding customer needs and delivering products that exceed expectations.
-//             </p>
-//             <ul className="space-y-4 text-gray-300">
-//               <li className="flex items-start">
-//                 <FaCheckCircle className="mr-3 text-green-400" />
-//                 Expertise in Precision Engineering: Our advanced toolroom is equipped with cutting-edge technology,
-//                 including EDM machines and a range of conventional machinery, enabling us to achieve unparalleled
-//                 precision and quality.
-//               </li>
-//               <li className="flex items-start">
-//                 <FaCheckCircle className="mr-3 text-green-400" />
-//                 Whether you need custom moulds or specialized tools, we work closely with you to deliver products that
-//                 meet your exact specifications.
-//               </li>
-//               <li className="flex items-start">
-//                 <FaCheckCircle className="mr-3 text-green-400" />
-//                 Our stringent quality control processes ensure every product we manufacture exceeds industry standards.
-//               </li>
-//             </ul>
-//           </div>
-//         </div>
-
-//         {/* Call to Action */}
-//         <div className="text-center mt-12">
-//           <p className="text-xl mb-4 text-gray-300">
-//             At HARVI TOOLS, we are committed to delivering excellence in every product, ensuring customer satisfaction.
-//           </p>
-//           <p className="text-lg font-medium text-yellow-500">
-//             Contact us today to discuss your requirements and let us bring your vision to life with our expertise and
-//             innovation.
-//           </p>
-//         </div>
-//       </div>
-//       <Footer />
-//     </div>
-//   );
-// };
-
-// export default About;
 
