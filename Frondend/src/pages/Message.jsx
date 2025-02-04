@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MessagePage = () => {
     const [messages, setMessages] = useState([]);
+    const navigate=useNavigate();
 
     useEffect(() => {
         const fetchMessages = async () => {
@@ -21,8 +23,17 @@ const MessagePage = () => {
     }, []);
 
     return (
+        <div>
+          
         <div className="min-h-screen flex items-center justify-center p-6 bg-black">
+             
             <div className="max-w-5xl w-full">
+            <button
+  onClick={() => navigate('/dashboard')}
+  className="text-white focus:ring-4 focus:ring-yellow-300 font-semibold rounded-full px-6 py-3 transition-all duration-300 ease-in-out transform hover:scale-105"
+>
+  ← Back to Dashboard
+</button>
                 <h1 className="text-4xl font-extrabold text-yellow-400 mb-8 text-center">Messages</h1>
                 <div className="bg-black/60 backdrop-blur-lg rounded-xl shadow-lg hover:shadow-xl transition duration-300 border border-yellow-400/20 p-8">
                     <div className="overflow-x-auto">
@@ -71,6 +82,7 @@ const MessagePage = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

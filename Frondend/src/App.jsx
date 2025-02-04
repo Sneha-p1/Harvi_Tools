@@ -16,11 +16,14 @@ import Dashboard from "./pages/Dashboard";
 import AdminViewPage from "./pages/AdminViewPage";
 import MainLayout from "./layout/MainLayout";
 import MessagePage from "./pages/Message";
+import ImageSlider from "./pages/ImageSlider";
   
   function App() {
     const router = createBrowserRouter(
       createRoutesFromElements(
         <>
+        <Route path="/image" element={<ImageSlider/>}/>
+
         <Route path="/" element={<MainLayout />}>
          
   

@@ -43,14 +43,17 @@ const ProductAddPage = () => {
   };
 
   return (
+    
     <div className="min-h-screen bg-gradient-to-br from-gray-700 via-black to-gray-800 py-16 px-8">
+<button
+  onClick={() => navigate('/dashboard')}
+  className="text-white focus:ring-4 focus:ring-yellow-300 font-semibold rounded-full px-6 py-3 transition-all duration-300 ease-in-out transform hover:scale-105"
+>
+  ← Back to Dashboard
+</button>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
-      <button
-          onClick={() => navigate('/dashboard')}
-className="text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-300 font-semibold rounded-lg px-6 py-3 transition-all duration-300 ease-in-out transform hover:scale-105"
-        >
-          ← Back to Dashboard
-        </button>
+   
+
         {/* GIF Section */}
         <div className="md:w-1/2 mb-12 md:mb-0 flex justify-center relative">
           <div className="w-72 h-72 rounded-full overflow-hidden border-4 border-yellow-500/30 p-1 backdrop-blur-sm">
@@ -116,9 +119,13 @@ className="text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:ring-
                 Create Product
               </button>
             </form>
+            
           </div>
+          
         </div>
+        
       </div>
+
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { BiSolidEdit } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const AdminViewPage = () => {
   const [products, setProducts] = useState([]);
@@ -8,6 +9,8 @@ const AdminViewPage = () => {
   const [editForm, setEditForm] = useState({ name: "", description: "", image: null });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  const navigate = useNavigate(); 
+
 
   const fetchProducts = async () => {
     try {
@@ -98,11 +101,11 @@ const AdminViewPage = () => {
     <div className="bg-black text-white min-h-screen">
       <div className="max-w-7xl mx-auto py-16 px-8">
       <button
-          onClick={() => navigate('/dashboard')}
-className="text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-300 font-semibold rounded-lg px-6 py-3 transition-all duration-300 ease-in-out transform hover:scale-105"
-        >
-          ← Back to Dashboard
-        </button>
+  onClick={() => navigate('/dashboard')}
+  className="text-white focus:ring-4 focus:ring-yellow-300 font-semibold rounded-full px-6 py-3 transition-all duration-300 ease-in-out transform hover:scale-105"
+>
+  ← Back to Dashboard
+</button>
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold uppercase mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
             Product Dashboard
