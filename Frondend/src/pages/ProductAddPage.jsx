@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Product from "../assets/images/CreactProduct.gif";
+import { motion } from "framer-motion";
 
 const ProductAddPage = () => {
   const [formData, setFormData] = useState({ name: "", description: "", image: "" });
@@ -43,19 +44,26 @@ const ProductAddPage = () => {
   };
 
   return (
-    
-    <div className="min-h-screen bg-gradient-to-br from-gray-700 via-black to-gray-800 py-16 px-8">
-<button
-  onClick={() => navigate('/dashboard')}
-  className="text-white focus:ring-4 focus:ring-yellow-300 font-semibold rounded-full px-6 py-3 transition-all duration-300 ease-in-out transform hover:scale-105"
->
-  ← Back to Dashboard
-</button>
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
-   
+    <motion.div
+      className="min-h-screen bg-gradient-to-br from-gray-700 via-black to-gray-800 py-16 px-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.button
+        onClick={() => navigate("/dashboard")}
+        className="text-white focus:ring-4 focus:ring-yellow-300 font-semibold rounded-full px-6 py-3 transition-all duration-300 ease-in-out transform hover:scale-105"
+        whileTap={{ scale: 0.9 }}
+      >
+        ← Back to Dashboard
+      </motion.button>
 
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
         {/* GIF Section */}
-        <div className="md:w-1/2 mb-12 md:mb-0 flex justify-center relative">
+        <motion.div
+          className="md:w-1/2 mb-12 md:mb-0 flex justify-center relative"
+          whileHover={{ scale: 1.1, rotate: 3 }}
+        >
           <div className="w-72 h-72 rounded-full overflow-hidden border-4 border-yellow-500/30 p-1 backdrop-blur-sm">
             <img 
               src={Product}
@@ -63,18 +71,35 @@ const ProductAddPage = () => {
               className="w-full h-full object-cover rounded-full"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Glass Form Container */}
-        <div className="md:w-1/2 relative">
+        <motion.div
+          className="md:w-1/2 relative"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="glass-container bg-black/30 backdrop-blur-lg rounded-2xl p-8 border border-white/10 shadow-2xl">
             <h1 className="text-3xl md:text-4xl font-bold uppercase mb-6 tracking-wide text-yellow-400">
               Add New Product
-              {/* <span className="text-yellow-400 block mt-2">Create New Product</span> */}
             </h1>
             
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div>
+            <motion.form
+              onSubmit={handleSubmit}
+              className="space-y-8"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { staggerChildren: 0.2 },
+                },
+              }}
+            >
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <label className="block text-gray-300 font-semibold mb-3 text-lg">Product Name</label>
                 <input
                   type="text"
@@ -84,9 +109,9 @@ const ProductAddPage = () => {
                   className="w-full bg-black/40 border-2 border-white/10 rounded-xl p-4 text-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/50 placeholder-gray-400"
                   placeholder="Enter product name"
                 />
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <label className="block text-gray-300 font-semibold mb-3 text-lg">Description</label>
                 <textarea
                   name="description"
@@ -95,9 +120,9 @@ const ProductAddPage = () => {
                   className="w-full bg-black/40 border-2 border-white/10 rounded-xl p-4 text-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/50 h-32 placeholder-gray-400"
                   placeholder="Describe your product..."
                 ></textarea>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                 <label className="block text-gray-300 font-semibold mb-3 text-lg">Product Image</label>
                 <div className="relative bg-black/40 border-2 border-white/10 rounded-xl p-4 transition-colors hover:border-yellow-500/50">
                   <input
@@ -110,24 +135,22 @@ const ProductAddPage = () => {
                     <span className="text-yellow-400">Click to upload</span> or drag and drop
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <button
+              <motion.button
                 type="submit"
                 className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black py-4 rounded-xl font-bold text-lg uppercase tracking-wide hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/20"
+                whileTap={{ scale: 0.95 }}
               >
                 Create Product
-              </button>
-            </form>
-            
+              </motion.button>
+            </motion.form>
           </div>
-          
-        </div>
-        
+        </motion.div>
       </div>
-
-    </div>
+    </motion.div>
   );
 };
 
 export default ProductAddPage;
+
