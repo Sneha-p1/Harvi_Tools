@@ -7,6 +7,8 @@ const multer = require('multer');
 const router = express.Router();
 
 
+
+
 //Multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -34,7 +36,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post("/", adminAuthMiddleware, upload.single("image"), async (req, res) => {
+router.post("/", upload.single("image"), async (req, res) => {
   const { name, description } = req.body;
 
   if (!req.file) {
@@ -60,7 +62,7 @@ router.post("/", adminAuthMiddleware, upload.single("image"), async (req, res) =
   }
 });
 
-router.put("/:id", adminAuthMiddleware, upload.single("image"), async (req, res) => {
+router.put("/:id",  upload.single("image"), async (req, res) => {
   const { id } = req.params; 
   const updatedData = { ...req.body }; 
 
@@ -82,7 +84,7 @@ router.put("/:id", adminAuthMiddleware, upload.single("image"), async (req, res)
   }
 });
 
-router.delete('/:id',adminAuthMiddleware, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {

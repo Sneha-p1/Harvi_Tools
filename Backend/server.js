@@ -7,6 +7,8 @@ const productRoutes = require('./Routes/product'); // Import routes
 const adminRoutes = require("./Routes/admin");
 const messageRoutes = require("./Routes/message");
 const path = require('path');
+const cookieParser = require("cookie-parser");
+
 
 const cors = require("cors"); // Import CORS
 
@@ -18,6 +20,8 @@ const PORT = process.env.PORT || 5000;
 
 
 app.use(bodyParser.json());
+app.use(cookieParser());
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
@@ -31,7 +35,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // Allow only requests from this origin
+    origin: 'http://localhost:5173',
+    credentials: true, // Allow only requests from this origin
 };
 
 // Use CORS middleware with specified options

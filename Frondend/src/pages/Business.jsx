@@ -44,21 +44,21 @@
 //             <h3 className="text-2xl font-semibold mt-8">Our Mission</h3>
 //             <ul className="space-y-4 mt-4">
 //               <li className="flex items-start">
-//                 <FaCheckCircle className="mr-3 mt-1 text-yellow-500" />
+//                 <FaCheckCircle className="mr-3 mt-1 text-yelclearlow-500" />
 //                 <div>
 //                   <strong>Highest Quality:</strong> Delivering top-notch
 //                   products that meet industry standards.
 //                 </div>
 //               </li>
 //               <li className="flex items-start">
-//                 <FaCheckCircle className="mr-3 mt-1 text-yellow-500" />
+//                 <FaCheckCircle className="mr-3 mt-1 text-yelclearlow-500" />
 //                 <div>
 //                   <strong>Competitive Price:</strong> Providing value without
 //                   compromising quality.
 //                 </div>
 //               </li>
 //               <li className="flex items-start">
-//                 <FaCheckCircle className="mr-3 mt-1 text-yellow-500" />
+//                 <FaCheckCircle className="mr-3 mt-1 text-yelclearlow-500" />
 //                 <div>
 //                   <strong>Shortest Lead Time:</strong> Ensuring timely delivery
 //                   to meet customer demands.
