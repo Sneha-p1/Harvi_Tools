@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import img1 from '../assets/images/aaaa.jpg';
 import img2 from '../assets/images/about.jpg';
-import img3 from '../assets/images/pic.jpeg'; // Add more images as needed
+import img3 from '../assets/images/pic.jpeg'; 
+import img4 from '../assets/images/Mechanical.jpg'; 
+import img5 from '../assets/images/Image105.jpeg'; 
 
-const images = [img1, img2, img3]; // List of images to rotate
+
+
+const images = [img1, img2, img3, img4, img5]; // List of images to rotate
 
 const ImageSlider = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

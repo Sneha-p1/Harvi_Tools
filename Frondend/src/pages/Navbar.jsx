@@ -83,6 +83,9 @@ const Navbar = () => {
             <a href="/business" className="text-sm font-bold hover:text-yellow-500">
               SERVICES
             </a>
+            <a href="/facilities" className="text-sm font-bold hover:text-yellow-500">
+              FACILITIES
+            </a>
             <a href="/contact" className="text-sm font-bold hover:text-yellow-500">
               CONTACT
             </a>
@@ -112,6 +115,9 @@ const Navbar = () => {
             </a>
             <a href="/business" className="text-sm font-bold hover:text-yellow-500">
               SERVICES
+            </a>
+            <a href="/facilities" className="text-sm font-bold hover:text-yellow-500">
+              FACILITIES
             </a>
             <a href="/contact" className="text-sm font-bold hover:text-yellow-500">
               CONTACT

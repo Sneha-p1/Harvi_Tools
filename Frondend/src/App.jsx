@@ -17,6 +17,7 @@ import AdminViewPage from "./pages/AdminViewPage";
 import MainLayout from "./layout/MainLayout";
 import MessagePage from "./pages/Message";
 import ImageSlider from "./pages/ImageSlider";
+import Facilities from "./pages/Facilities";
   
   function App() {
     const router = createBrowserRouter(
@@ -31,7 +32,8 @@ import ImageSlider from "./pages/ImageSlider";
           <Route path="/" element={<About/>}/>
           {/* <Route path="/footer" element={<Footer/>}/> */}
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/business" element={<Business/>}/>
+          <Route path="/business" element={<Business />} />
+          <Route path="/facilities" element={<Facilities/>}/>
           <Route path="/product" element={<ProductListPage/>}/>
           <Route path="/admin" element={<ProductAddPage/>}/>
           <Route path="/card" element={<ProductCard/>}/>
