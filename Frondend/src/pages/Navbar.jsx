@@ -187,7 +187,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import img1 from "../assets/images/logo.jpeg";
-import './Navbar.css';
+import "./Navbar.css";
 
 const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -198,7 +198,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if token exists in cookies
     const token = Cookies.get("adminToken");
     if (token) {
       setIsAdmin(true);
@@ -207,7 +206,6 @@ const Navbar = () => {
 
   const handlePasswordSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch("http://localhost:5000/api/validate-admin", {
         method: "POST",
@@ -215,7 +213,7 @@ const Navbar = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ password }),
-        credentials: "include", // Ensure cookies are included
+        credentials: "include",
       });
 
       const data = await response.json();
@@ -257,69 +255,12 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
-<<<<<<< HEAD
-            <a href="/" className="text-sm font-bold hover:text-yellow-500">
-              ABOUT
-            </a>
-            <a href="/product" className="text-sm font-bold hover:text-yellow-500">
-              PRODUCTS
-            </a>
-            <a href="/business" className="text-sm font-bold hover:text-yellow-500">
-              SERVICES
-            </a>
-            <a href="/facilities" className="text-sm font-bold hover:text-yellow-500">
-              FACILITIES
-            </a>
-            <a href="/contact" className="text-sm font-bold hover:text-yellow-500">
-              CONTACT
-            </a>
-            <button
-              onClick={() => setShowPopup(true)}
-              className="text-sm font-bold hover:text-yellow-500"
-            >
-              DASHBOARD
-            </button>
-            <a href="#" className="text-gray-400 hover:text-red-500">
-              <i className="fab fa-youtube text-3xl"></i>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-pink-500">
-              <i className="fab fa-instagram text-3xl"></i>
-            </a>
-          </div>
-        </div>
-
-        {/* Dropdown Menu for Mobile */}
-        {menuOpen && (
-          <div className="bg-black lg:hidden flex flex-col space-y-2 py-4 px-6">
-            <a href="/" className="text-sm font-bold hover:text-yellow-500">
-              ABOUT
-            </a>
-            <a href="/product" className="text-sm font-bold hover:text-yellow-500">
-              PRODUCTS
-            </a>
-            <a href="/business" className="text-sm font-bold hover:text-yellow-500">
-              SERVICES
-            </a>
-            <a href="/facilities" className="text-sm font-bold hover:text-yellow-500">
-              FACILITIES
-            </a>
-            <a href="/contact" className="text-sm font-bold hover:text-yellow-500">
-              CONTACT
-            </a>
-            <button
-              onClick={() => setShowPopup(true)}
-              className="text-sm font-bold hover:text-yellow-500 text-left"
-            >
-              DASHBOARD
-            </button>
-          </div>
-        )}
-=======
             <a href="/" className="text-sm font-bold hover:text-yellow-500">ABOUT</a>
             <a href="/product" className="text-sm font-bold hover:text-yellow-500">PRODUCTS</a>
             <a href="/business" className="text-sm font-bold hover:text-yellow-500">SERVICES</a>
+            <a href="/facilities" className="text-sm font-bold hover:text-yellow-500">FACILITIES</a>
             <a href="/contact" className="text-sm font-bold hover:text-yellow-500">CONTACT</a>
-            
+
             {isAdmin ? (
               <>
                 <a href="/dashboard" className="text-sm font-bold hover:text-green-500">DASHBOARD</a>
@@ -332,7 +273,20 @@ const Navbar = () => {
             )}
           </div>
         </div>
->>>>>>> d97c1f4 (modified)
+
+        {/* Mobile Dropdown Menu */}
+        {menuOpen && (
+          <div className="bg-black lg:hidden flex flex-col space-y-2 py-4 px-6">
+            <a href="/" className="text-sm font-bold hover:text-yellow-500">ABOUT</a>
+            <a href="/product" className="text-sm font-bold hover:text-yellow-500">PRODUCTS</a>
+            <a href="/business" className="text-sm font-bold hover:text-yellow-500">SERVICES</a>
+            <a href="/facilities" className="text-sm font-bold hover:text-yellow-500">FACILITIES</a>
+            <a href="/contact" className="text-sm font-bold hover:text-yellow-500">CONTACT</a>
+            <button onClick={() => setShowPopup(true)} className="text-sm font-bold hover:text-yellow-500 text-left">
+              DASHBOARD
+            </button>
+          </div>
+        )}
       </nav>
 
       <div className="pt-20"></div>

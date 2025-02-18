@@ -22,4 +22,15 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.delete('/:id',async(req,res)=>{
+    try {
+        const {id}=req.params
+        await Message.findByIdAndDelete(id);
+        res.json({message:"message deleted"})
+    } catch (error) {
+        console.log('Error deleting message',error)
+        res.status(500).json({ error: error.message });
+    }
+})
+
 module.exports = router;

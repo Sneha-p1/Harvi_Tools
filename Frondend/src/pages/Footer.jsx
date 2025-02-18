@@ -16,7 +16,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="md:w-1/3 text-gray-400">
-            <h4 className="text-lg font-serif text-yellow-500 mb-4  md:text-left">QUICK LINKS</h4>
+            {/* <h4 className="text-lg font-serif text-yellow-500 mb-4  md:text-left">QUICK LINKS</h4> */}
             <ul className="space-y-2 text-[16px]  md:text-left">
               <li>
                 <a href="/" className="text-white hover:text-yellow-500">About Us</a>
@@ -55,7 +55,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 my-6"></div>
+        <div className="border-t border-gray-700  mt-12 my-6"></div>
 
         {/* Copyright */}
         <div className="text-yellow-500 text-center text-[15px]">
