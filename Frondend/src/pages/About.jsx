@@ -11,6 +11,7 @@ const About = () => {
       className="about-container bg-cover bg-center text-black"
       style={{ minHeight: "100vh" }}
     >
+      
       {/* Hero Section */}
       <div className="relative bg-black text-white min-h-screen flex items-center justify-center px-8 overflow-hidden">
         <div className="max-w-7xl w-full flex flex-col md:flex-row items-center relative z-10">
