@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from "react";
 // import { FaBuilding, FaCompass, FaCheckCircle } from "react-icons/fa";
 // import harviToolsImg from "../assets/images/Molding.gif";
@@ -228,6 +229,8 @@
 // export default Business;          
 
 
+=======
+>>>>>>> 5489845 (new)
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -235,12 +238,12 @@ import PlasticMould1 from "../assets/images/PlasticMould1.jpg";
 import PlasticMould2 from "../assets/images/PlasticMould2.jpg";
 import PressTool1 from "../assets/images/PressTool1.jpeg";
 import PressTool2 from "../assets/images/PressTool2.jpg";
-import BlowMould1 from "../assets/images/BlowMould1.jpg";
-import BlowMould2 from "../assets/images/BlowMould2.jpg";
-import MillingworkImg from "../assets/images/Millingwork.jpeg";
+import LatheWork1 from "../assets/images/Lathe_Work.jpeg";
+import facegrooving from "../assets/images/face-grooving.jpg";
+import MillingworkImg from "../assets/images/Millingwork.jpg";
+import BoringWorkImg from "../assets/images/BoringWork.jpg";
 
 const Business = () => {
-  // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -275,10 +278,7 @@ const Business = () => {
         >
           Services
         </motion.h1>
-        <motion.p
-          variants={fadeInUp}
-          className="mt-4 text-lg text-gray-300"
-        >
+        <motion.p variants={fadeInUp} className="mt-4 text-lg text-gray-300">
           Explore the services and expertise offered by HARVI TOOLS
         </motion.p>
       </motion.div>
@@ -350,10 +350,7 @@ const Business = () => {
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16"
         >
-          <motion.div
-            variants={fadeInUp}
-            className="grid grid-cols-2 gap-6"
-          >
+          <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-6">
             <motion.img
               variants={imageHover}
               whileHover="hover"
@@ -391,10 +388,7 @@ const Business = () => {
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16"
         >
-          <motion.div
-            variants={fadeInUp}
-            className="grid grid-cols-2 gap-6"
-          >
+          <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-6">
             <motion.img
               variants={imageHover}
               whileHover="hover"
@@ -432,21 +426,18 @@ const Business = () => {
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16"
         >
-          <motion.div
-            variants={fadeInUp}
-            className="grid grid-cols-2 gap-6"
-          >
+          <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-6">
             <motion.img
               variants={imageHover}
               whileHover="hover"
-              src={BlowMould1}
+              src={LatheWork1}
               alt="Blow Mould 1"
               className="rounded-lg shadow-lg h-[300px] w-full object-cover"
             />
             <motion.img
               variants={imageHover}
               whileHover="hover"
-              src={BlowMould2}
+              src={facegrooving}
               alt="Blow Mould 2"
               className="rounded-lg shadow-lg h-[300px] w-full object-cover"
             />
@@ -476,53 +467,55 @@ const Business = () => {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16"
         >
-          <motion.div
-            variants={fadeInUp}
-            className="md:col-span-2"
-          >
+          {/* Image Section */}
+          <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-6">
             <motion.img
               variants={imageHover}
               whileHover="hover"
               src={MillingworkImg}
-              alt="Milling Work"
+              alt="Milling Work 1"
+              className="rounded-lg shadow-lg h-[300px] w-full object-cover"
+            />
+            <motion.img
+              variants={imageHover}
+              whileHover="hover"
+              src={BoringWorkImg}
+              alt="Milling Work 2"
               className="rounded-lg shadow-lg h-[300px] w-full object-cover"
             />
           </motion.div>
 
+          {/* Content Section */}
           <motion.div
             variants={fadeInUp}
-            className="md:col-span-1 bg-black rounded-xl shadow-2xl p-8 hover:shadow-3xl transition duration-300 border border-yellow-400/20"
+            className="bg-black rounded-xl shadow-2xl p-8 hover:shadow-3xl transition duration-300 border border-yellow-400/20"
           >
             <h2 className="text-3xl font-semibold mb-4 text-yellow-400">
               Milling Work
             </h2>
-            <ul className="list-disc pl-6 space-y-2 text-gray-300">
-              <li>Drilling</li>
-              <li>Tapping</li>
-              <li>Boring</li>
-              <li>Jig boring</li>
-              <li>Template jig</li>
-              <li>Plate type jig</li>
-              <li>Open type jig</li>
-              <li>Channel jig</li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            variants={fadeInUp}
-            className="md:col-span-1 bg-black rounded-xl shadow-2xl p-8 hover:shadow-3xl transition duration-300 border border-yellow-400/20"
-          >
-            <ul className="list-disc pl-6 space-y-2 text-gray-300">
-              <li>Leaf jig</li>
-              <li>Box type jig</li>
-              <li>Adjustable fixture</li>
-              <li>Grinding fixture</li>
-              <li>Welding fixture</li>
-              <li>Assembly fixture</li>
-              <li>Inspection fixture</li>
-            </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <ul className="list-disc pl-6 space-y-2 text-gray-300">
+                <li>Drilling</li>
+                <li>Tapping</li>
+                <li>Boring</li>
+                <li>Jig boring</li>
+                <li>Template jig</li>
+                <li>Plate type jig</li>
+                <li>Open type jig</li>
+                <li>Channel jig</li>
+              </ul>
+              <ul className="list-disc pl-6 space-y-2 text-gray-300">
+                <li>Leaf jig</li>
+                <li>Box type jig</li>
+                <li>Adjustable fixture</li>
+                <li>Grinding fixture</li>
+                <li>Welding fixture</li>
+                <li>Assembly fixture</li>
+                <li>Inspection fixture</li>
+              </ul>
+            </div>
           </motion.div>
         </motion.div>
 

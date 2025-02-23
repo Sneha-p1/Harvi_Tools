@@ -5,8 +5,6 @@ import img3 from '../assets/images/pic.jpeg';
 import img4 from '../assets/images/Mechanical.jpg'; 
 import img5 from '../assets/images/Image105.jpeg'; 
 
-
-
 const images = [img1, img2, img3, img4, img5]; // List of images to rotate
 
 const ImageSlider = () => {
