@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const productRoutes = require('./Routes/product'); // Import routes
 const adminRoutes = require("./Routes/admin");
 const messageRoutes = require("./Routes/message");
+const facilityRoutes = require("./Routes/facility");
 const path = require('path');
 const cookieParser = require("cookie-parser");
 
@@ -18,11 +19,12 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 
 // MongoDB Connection
@@ -47,6 +49,7 @@ app.use(cors(corsOptions));
 app.use('/api/messages', messageRoutes);
 app.use('/api/products', productRoutes);
 app.use("/api", adminRoutes);
+app.use("/api/facility", facilityRoutes);
 
 
 // Start the server

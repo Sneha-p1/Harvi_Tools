@@ -1,146 +1,102 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import MachineImage1 from "../assets/images/Mechanical.jpg";
-import MachineImage2 from "../assets/images/Mechanical.jpg";
-import MachineImage3 from "../assets/images/Mechanical.jpg";
-import CertificateImage1 from "../assets/images/certificate.jpg";
-import CertificateImage2 from "../assets/images/certificate.jpg";
-import { FaCertificate } from "react-icons/fa";
-import { Dialog } from "@headlessui/react";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const Facilities = () => {
-  const [hoveredImage, setHoveredImage] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+const FacilityListPage = () => {
+  const [facility, setFacility] = useState([]);
 
-  const machines = [
-    {
-      id: 1,
-      name: "High-Precision CNC Machine",
-      description: "Our CNC machines ensure unparalleled precision for manufacturing complex components with exceptional accuracy.",
-      image: MachineImage1,
-    },
-    {
-      id: 2,
-      name: "Injection Molding Machine",
-      description: "Our advanced injection molding machines deliver high-quality components with superior durability.",
-      image: MachineImage2,
-    },
-    {
-      id: 3,
-      name: "Automated Assembly Line",
-      description: "Our fully automated assembly lines boost efficiency and maintain consistent product quality.",
-      image: MachineImage3,
-    },
-  ];
-
-  const openImage = (image) => {
-    setSelectedImage(image);
-    setIsOpen(true);
+  const fetchFacilities = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/facility");
+      if (!response.ok) throw new Error("Failed to fetch facilities");
+      const data = await response.json();
+      setFacility(data);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
-  const closeImage = () => {
-    setIsOpen(false);
-    setSelectedImage(null);
+  useEffect(() => {
+    fetchFacilities();
+  }, []);
+
+  // Animation variants for the facility cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+  };
+
+  // Animation variants for the page title
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } },
   };
 
   return (
-    <div className="min-h-screen bg-black py-12 px-6">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <h1 className="text-4xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">
-          Our Advanced Facilities
-        </h1>
-        <p className="mt-4 text-lg text-gray-300">
+    <div className="bg-black min-h-screen">
+      <div className="max-w-7xl mx-auto py-16 px-8">
+        <motion.div
+          className="text-center mb-16"
+          variants={titleVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <h1 className="text-4xl font-bold uppercase mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
+          OUR ADVANCED FACILITIES          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
           Explore our cutting-edge manufacturing and testing units.
-        </p>
-      </motion.div>
 
-      {/* Machine Section */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {machines.map((machine) => (
-          <motion.div
-            key={machine.id}
-            className="relative text-center cursor-pointer"
-            onMouseEnter={() => setHoveredImage(machine.id)}
-            onMouseLeave={() => setHoveredImage(null)}
-          >
-            <motion.img
-              src={machine.image}
-              alt={machine.name}
-              className={`rounded-lg shadow-lg w-full object-cover h-[300px] transition-transform duration-300 ${
-                hoveredImage === machine.id ? "scale-105" : ""
-              }`}
-            />
-            <h2 className="text-xl font-semibold text-yellow-400 mt-4">
-              {machine.name}
-            </h2>
-            {hoveredImage === machine.id && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="absolute top-0 left-0 w-full h-full bg-black/70 text-white flex items-center justify-center p-4 rounded-lg"
-              >
-                <p>{machine.description}</p>
-              </motion.div>
-            )}
-          </motion.div>
-        ))}
-      </div>
+</p>
+        </motion.div>
 
-      {/* Certificate Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mt-16"
-      >
-        <h2 className="text-3xl font-bold text-yellow-400 mb-8 flex justify-center items-center">
-          <FaCertificate className="mr-3" /> Our Certifications
-        </h2>
-        <div className="flex justify-center gap-3">
-          <motion.img
-            src={CertificateImage1}
-            alt="Certificate 1"
-            onClick={() => openImage(CertificateImage1)}
-            className="rounded-lg shadow-lg w-[40%] object-cover h-[350px] cursor-pointer"
-          />
-          <motion.img
-            src={CertificateImage2}
-            alt="Certificate 2"
-            onClick={() => openImage(CertificateImage2)}
-            className="rounded-lg shadow-lg w-[40%] object-cover h-[350px] cursor-pointer"
-          />
-        </div>
-      </motion.div>
-
-      {/* Image Modal */}
-      {isOpen && (
-        <Dialog open={isOpen} onClose={closeImage} className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="relative">
-            <img
-              src={selectedImage}
-              alt="Enlarged Certificate"
-              className="rounded-lg shadow-lg max-w-full max-h-screen"
-            />
-            <button
-              onClick={closeImage}
-              className="absolute top-2 right-2 text-white text-3xl focus:outline-none"
-            >
-              &times;
-            </button>
+        {facility.length === 0 ? (
+          <div className="text-center py-20">
+            <p className="text-2xl text-gray-400">No facility available</p>
+            <p className="text-gray-500 mt-2">Please check back later</p>
           </div>
-        </Dialog>
-      )}
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <AnimatePresence>
+              {facility.map((facility) => (
+                <motion.div
+                  key={facility._id}
+                  className="group bg-gray-900 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                  variants={cardVariants}
+                  initial="hidden"
+                  animate="visible"
+                  whileHover="hover"
+                >
+                  <div className="relative h-60 overflow-hidden">
+                    {facility.image ? (
+                      <img
+                        src={`http://localhost:5000/uploads/${facility.image}`}
+                        alt={facility.name}
+                        className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-500">
+                        No Image
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+                  </div>
+
+                  <div className="p-4">
+                    <h2 className="text-xl font-bold text-white mb-2">
+                      {facility.name}
+                    </h2>
+                    <p className="text-gray-300 text-sm">
+                      {facility.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default Facilities;
-
-
+export default FacilityListPage;

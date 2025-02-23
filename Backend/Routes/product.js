@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const Product = require('../Models/product'); 
-const adminAuthMiddleware = require('../Middleware/adminAuthMiddleware.js');
+const verifyAdmin = require('../Middleware/adminAuthMiddleware.js');
 const multer = require('multer');
 const router = express.Router();
 

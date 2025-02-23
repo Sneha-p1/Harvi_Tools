@@ -17,7 +17,9 @@ import AdminViewPage from "./pages/AdminViewPage";
 import MainLayout from "./layout/MainLayout";
 import MessagePage from "./pages/Message";
 import ImageSlider from "./pages/ImageSlider";
-import Facilities from "./pages/Facilities";
+import FacilityAddPage from "./pages/Facility";
+import FacilityViewAdmin from "./pages/FacilityViewAdmin";
+import FacilityListPage from "./pages/Facilities";
   
   function App() {
     const router = createBrowserRouter(
@@ -33,13 +35,15 @@ import Facilities from "./pages/Facilities";
           {/* <Route path="/footer" element={<Footer/>}/> */}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/business" element={<Business />} />
-          <Route path="/facilities" element={<Facilities/>}/>
+          <Route path="/facilities" element={<FacilityListPage/>}/>
           <Route path="/product" element={<ProductListPage/>}/>
           <Route path="/admin" element={<ProductAddPage/>}/>
           <Route path="/card" element={<ProductCard/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/admin-view" element={<AdminViewPage/>}/>
           <Route path="/message" element={<MessagePage/>}/>
+          <Route path="/facility" element={<FacilityAddPage/>}/>
+          <Route path="/facility-view" element={<FacilityViewAdmin/>}/>
 
 
         </Route>

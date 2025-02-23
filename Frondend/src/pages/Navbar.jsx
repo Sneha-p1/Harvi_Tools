@@ -181,7 +181,6 @@
 // };
 
 // export default Navbar;
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -243,7 +242,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-black text-white fixed w-full top-0 z-50">
+      <nav className="bg-black text-white fixed w-full top-0 z-50 shadow-md">
         <div className="container mx-auto flex items-center justify-between py-4 px-4">
           <div className="flex items-center space-x-4">
             <img src={img1} alt="Logo" className="h-16 w-auto shadow-lg rounded-full" />
@@ -254,37 +253,48 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Hamburger Icon */}
+          <button
+            className="lg:hidden text-white focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <i className={`fas ${menuOpen ? "fa-times" : "fa-bars"} text-2xl`}></i>
+          </button>
+
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center space-x-6">
             <a href="/" className="text-sm font-bold hover:text-yellow-500">ABOUT</a>
             <a href="/product" className="text-sm font-bold hover:text-yellow-500">PRODUCTS</a>
             <a href="/business" className="text-sm font-bold hover:text-yellow-500">SERVICES</a>
             <a href="/facilities" className="text-sm font-bold hover:text-yellow-500">FACILITIES</a>
             <a href="/contact" className="text-sm font-bold hover:text-yellow-500">CONTACT</a>
-
             {isAdmin ? (
               <>
                 <a href="/dashboard" className="text-sm font-bold hover:text-green-500">DASHBOARD</a>
                 <button onClick={handleLogout} className="text-sm font-bold text-red-500 hover:text-red-700">LOGOUT</button>
               </>
             ) : (
-              <button onClick={() => setShowPopup(true)} className="text-sm font-bold hover:text-yellow-500">
-                DASHBOARD
-              </button>
+              <button onClick={() => setShowPopup(true)} className="text-sm font-bold hover:text-yellow-500">DASHBOARD</button>
             )}
           </div>
         </div>
 
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
-          <div className="bg-black lg:hidden flex flex-col space-y-2 py-4 px-6">
+          <div className="lg:hidden flex flex-col items-center space-y-4 py-4 px-6 bg-black">
             <a href="/" className="text-sm font-bold hover:text-yellow-500">ABOUT</a>
             <a href="/product" className="text-sm font-bold hover:text-yellow-500">PRODUCTS</a>
             <a href="/business" className="text-sm font-bold hover:text-yellow-500">SERVICES</a>
             <a href="/facilities" className="text-sm font-bold hover:text-yellow-500">FACILITIES</a>
             <a href="/contact" className="text-sm font-bold hover:text-yellow-500">CONTACT</a>
-            <button onClick={() => setShowPopup(true)} className="text-sm font-bold hover:text-yellow-500 text-left">
-              DASHBOARD
-            </button>
+            {isAdmin ? (
+              <>
+                <a href="/dashboard" className="text-sm font-bold hover:text-green-500">DASHBOARD</a>
+                <button onClick={handleLogout} className="text-sm font-bold text-red-500 hover:text-red-700">LOGOUT</button>
+              </>
+            ) : (
+              <button onClick={() => setShowPopup(true)} className="text-sm font-bold hover:text-yellow-500">DASHBOARD</button>
+            )}
           </div>
         )}
       </nav>
@@ -326,3 +336,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
