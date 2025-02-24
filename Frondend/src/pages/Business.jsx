@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
  
 // import React from "react";
 // import { FaBuilding, FaCompass, FaCheckCircle } from "react-icons/fa";
@@ -233,7 +231,6 @@
 
 
 
->>>>>>> f518086 (business)
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
