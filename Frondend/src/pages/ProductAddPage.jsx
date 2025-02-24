@@ -25,7 +25,7 @@ const ProductAddPage = () => {
       data.append("image", formData.image);
     }
 
-    fetch("http://localhost:5000/api/products", {
+    fetch("/api/api/products", {
       method: "POST",
       headers: {
         "x-admin-password": "harvi_tools",

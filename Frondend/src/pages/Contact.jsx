@@ -14,7 +14,7 @@ const Contact = () => {
     const contactData = { email, name, message, phoneNumber };
 
     try {
-      const response = await fetch("http://localhost:5000/api/messages", {
+      const response = await fetch("/api/api/messages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

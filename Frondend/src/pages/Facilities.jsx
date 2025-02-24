@@ -6,7 +6,7 @@ const FacilityListPage = () => {
 
   const fetchFacilities = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/facility");
+      const response = await fetch("/api/api/facility");
       if (!response.ok) throw new Error("Failed to fetch facilities");
       const data = await response.json();
       setFacility(data);
@@ -69,7 +69,7 @@ const FacilityListPage = () => {
                   <div className="relative h-60 overflow-hidden">
                     {facility.image ? (
                       <img
-                        src={`http://localhost:5000/uploads/${facility.image}`}
+                        src={`/api/uploads/${facility.image}`}
                         alt={facility.name}
                         className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-110"
                       />

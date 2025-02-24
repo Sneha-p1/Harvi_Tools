@@ -15,7 +15,7 @@ const AdminViewPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/products", {
+      const response = await fetch("/api/api/products", {
         headers: {
           "x-admin-password": "harvi_tools",
         },
@@ -59,7 +59,7 @@ const AdminViewPage = () => {
     if (editForm.image) data.append("image", editForm.image);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${editProductId}`, {
+      const response = await fetch(`/api/api/products/${editProductId}`, {
         method: "PUT",
         headers: {
           "x-admin-password": "harvi_tools",
@@ -80,7 +80,7 @@ const AdminViewPage = () => {
 
   const handleDelete = async (productId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+      const response = await fetch(`/api/api/products/${productId}`, {
         method: "DELETE",
         headers: {
           "x-admin-password": "harvi_tools",
@@ -130,7 +130,7 @@ const AdminViewPage = () => {
               >
                 <div className="relative h-60 overflow-hidden">
                   <img
-                    src={`http://localhost:5000/uploads/${product.image}`}
+                    src={`/api/uploads/${product.image}`}
                     alt={product.name}
                     className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-110"
                   />

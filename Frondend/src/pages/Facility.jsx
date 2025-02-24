@@ -25,7 +25,7 @@ const FacilityAddPage = () => {
       data.append("image", formData.image);
     }
 
-    fetch("http://localhost:5000/api/facility", {
+    fetch("/api/api/facility", {
       method: "POST",
       headers: {
         "x-admin-password": "harvi_tools",
